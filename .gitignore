@@ -4,9 +4,8 @@ dist/
 .DS_Store
 npm-debug.log*
 
-# Local tooling caches.
+# Local tooling cache.
 .atl/
-.wrangler/
 
 # Working material
 resources/
