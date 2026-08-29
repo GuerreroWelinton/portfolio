@@ -12,15 +12,18 @@ const { hero } = content;
 const cvHref = locale === 'es' ? profile.cv.es : profile.cv.en;
 
 const ADVANCE_EM: Record<string, number> = {
-  A: 0.7, B: 0.69, C: 0.69, D: 0.73, E: 0.62, F: 0.6, G: 0.74, H: 0.75, I: 0.33,
-  J: 0.56, K: 0.69, L: 0.58, M: 0.9, N: 0.76, O: 0.76, P: 0.67, Q: 0.78, R: 0.69,
-  S: 0.65, T: 0.63, U: 0.74, V: 0.69, W: 1.02, X: 0.68, Y: 0.65, Z: 0.62, ' ': 0.27,
+  A: 0.778, B: 0.778, C: 0.778, D: 0.778, E: 0.722, F: 0.667, G: 0.833, H: 0.833,
+  I: 0.369, J: 0.667, K: 0.833, L: 0.667, M: 0.972, N: 0.833, O: 0.833, P: 0.722,
+  Q: 0.833, R: 0.778, S: 0.722, T: 0.722, U: 0.833, V: 0.778, W: 1.0, X: 0.778,
+  Y: 0.778, Z: 0.722, ' ': 0.18,
 };
 const TRACKING_EM = -0.03;
 
+const WIDEST_EM = Math.max(...Object.values(ADVANCE_EM));
+
 const lineWidthEm = (line: string) => {
-  const chars = [...line.toUpperCase()];
-  const advances = chars.reduce((total, char) => total + (ADVANCE_EM[char] ?? 0.7), 0);
+  const chars = [...line.toUpperCase().normalize('NFD').replace(/\p{M}/gu, '')];
+  const advances = chars.reduce((total, char) => total + (ADVANCE_EM[char] ?? WIDEST_EM), 0);
   return advances + (chars.length - 1) * TRACKING_EM;
 };
 

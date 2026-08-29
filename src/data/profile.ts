@@ -40,7 +40,7 @@ export const images = {
 } as const;
 
 export const stacks = {
-  core: ['Angular', 'TypeScript', 'NgRx', 'Node.js', 'MongoDB', 'Vitest', 'Docker'],
+  core: ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'Vitest', 'Docker'],
   frontend: [
     'Angular',
     'RxJS',

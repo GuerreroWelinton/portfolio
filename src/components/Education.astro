@@ -35,24 +35,26 @@ const { education } = content;
 
       <div class="panel" data-reveal>
         <h3 class="panel__title label">{education.certificationTitle}</h3>
-        <div class="panel__list">
-          <p class="panel__heading">{education.certification.title}</p>
-          <p class="panel__meta">{education.certification.issuer}</p>
-          <p class="panel__body">{education.certification.body}</p>
-          <p class="panel__meta mono panel__credential">
-            {education.certification.credentialLabel}
-            <span>{profile.certification.credentialId}</span>
-          </p>
-          <a
-            class="panel__verify label"
-            href={profile.certification.verifyUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {education.certification.verifyLabel}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </div>
+        <ul class="panel__list">
+          <li>
+            <p class="panel__heading">{education.certification.title}</p>
+            <p class="panel__meta">{education.certification.issuer}</p>
+            <p class="panel__body">{education.certification.body}</p>
+            <p class="panel__meta mono panel__credential">
+              {education.certification.credentialLabel}
+              <span>{profile.certification.credentialId}</span>
+            </p>
+            <a
+              class="panel__verify label"
+              href={profile.certification.verifyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {education.certification.verifyLabel}
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
       <div class="panel" data-reveal>
