@@ -5,17 +5,17 @@
   --color-fg-invert: #ffffff;
   --color-border: #000000;
 
-  --color-accent: #1f883d;
-  --color-accent-ink: #1f883d;
-  --color-accent-on-fg: #3fb950;
-  --color-accent-surface: #1f883d;
+  --color-accent: #0f7a4a;
+  --color-accent-ink: #0f7a4a;
+  --color-accent-on-fg: #2fd08a;
+  --color-accent-surface: #0f7a4a;
   --color-on-accent: #ffffff;
 
   --color-muted-ink: #4a4a4a;
 
   --color-portrait-frame: var(--color-border);
 
-  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
+  --font-sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --weight-regular: 400;
@@ -69,7 +69,7 @@
   --pattern-dots: 16px;
   --pattern-opacity: 0.045;
 
-  --accent-glow: rgb(31 136 61 / 0.16);
+  --accent-glow: rgb(15 122 74 / 0.16);
 
   color-scheme: light;
 }
@@ -82,10 +82,10 @@
     --color-fg-invert: #000000;
     --color-border: #ffffff;
 
-    --color-accent: #3fb950;
-    --color-accent-ink: #3fb950;
-    --color-accent-on-fg: #1f883d;
-    --color-accent-surface: #3fb950;
+    --color-accent: #2fd08a;
+    --color-accent-ink: #2fd08a;
+    --color-accent-on-fg: #0f7a4a;
+    --color-accent-surface: #2fd08a;
     --color-on-accent: #000000;
 
     --color-muted-ink: #b4b4b4;
@@ -104,10 +104,10 @@
   --color-fg-invert: #000000;
   --color-border: #ffffff;
 
-  --color-accent: #3fb950;
-  --color-accent-ink: #3fb950;
-  --color-accent-on-fg: #1f883d;
-  --color-accent-surface: #3fb950;
+  --color-accent: #2fd08a;
+  --color-accent-ink: #2fd08a;
+  --color-accent-on-fg: #0f7a4a;
+  --color-accent-surface: #2fd08a;
   --color-on-accent: #000000;
 
   --color-muted-ink: #b4b4b4;
