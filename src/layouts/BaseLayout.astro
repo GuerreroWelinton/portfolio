@@ -12,7 +12,9 @@ interface Props {
 
 const { locale, content } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com');
-const ogImage = images.ogImage;
+// Open Graph needs an absolute URL; a scraper reading /og.png resolves nothing.
+// Same treatment the portrait already gets, so profile.ts can hold a plain path.
+const ogImage = new URL(images.ogImage, canonical).href;
 
 const personSchema = {
   '@context': 'https://schema.org',
