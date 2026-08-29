@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# No Sitemap line on purpose. This site is two pages that link to each other, and
+# a robots.txt pointing at a sitemap.xml that returns 404 is worse than none.
+# If a sitemap is wanted later: npm i @astrojs/sitemap, add it to integrations,
+# and put the line back.

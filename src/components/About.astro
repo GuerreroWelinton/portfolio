@@ -1,0 +1,57 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { Content } from '../i18n';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { about } = content;
+---
+
+<section class="section about" id="about" aria-labelledby="about-title">
+  <div class="shell">
+    <SectionHeader title={about.title} titleId="about-title" />
+
+    <div class="about__grid" data-reveal>
+      <p class="about__lead">{about.lead}</p>
+      <div class="prose about__body">
+        {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__grid {
+    display: grid;
+    gap: var(--space-xl);
+    padding-top: var(--space-lg);
+    border-top: var(--border-thick) solid var(--color-border);
+  }
+
+  .about__lead {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-black);
+    line-height: 1.2;
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+  }
+
+  .about__body {
+    color: var(--color-muted-ink);
+  }
+
+  @media (min-width: 64rem) {
+    .about__grid {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: var(--space-3xl);
+      align-items: start;
+    }
+
+    .about__lead {
+      max-width: 20ch;
+    }
+  }
+</style>

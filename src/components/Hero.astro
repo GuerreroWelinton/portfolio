@@ -1,0 +1,273 @@
+---
+import type { Content, Locale } from '../i18n';
+import { images, profile } from '../data/profile';
+
+interface Props {
+  content: Content;
+  locale: Locale;
+}
+
+const { content, locale } = Astro.props;
+const { hero } = content;
+const cvHref = locale === 'es' ? profile.cv.es : profile.cv.en;
+
+const ADVANCE_EM: Record<string, number> = {
+  A: 0.7, B: 0.69, C: 0.69, D: 0.73, E: 0.62, F: 0.6, G: 0.74, H: 0.75, I: 0.33,
+  J: 0.56, K: 0.69, L: 0.58, M: 0.9, N: 0.76, O: 0.76, P: 0.67, Q: 0.78, R: 0.69,
+  S: 0.65, T: 0.63, U: 0.74, V: 0.69, W: 1.02, X: 0.68, Y: 0.65, Z: 0.62, ' ': 0.27,
+};
+const TRACKING_EM = -0.03;
+
+const lineWidthEm = (line: string) => {
+  const chars = [...line.toUpperCase()];
+  const advances = chars.reduce((total, char) => total + (ADVANCE_EM[char] ?? 0.7), 0);
+  return advances + (chars.length - 1) * TRACKING_EM;
+};
+
+const FIT_HEADROOM = 1.04;
+const measuredFit = Math.max(...hero.roleLines.map(lineWidthEm)) * FIT_HEADROOM;
+
+const MIN_FIT: Record<Locale, number> = { en: 7.86, es: 0 };
+const displayFit = Math.max(measuredFit, MIN_FIT[locale]).toFixed(2);
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__texture pattern-grid" aria-hidden="true"></div>
+
+  <div class="hero__inner shell">
+    <div class="hero__lead">
+      <p class="eyebrow eyebrow--accent hero__eyebrow">
+        <span class="hero__dot" aria-hidden="true"></span>
+        {hero.eyebrow}
+      </p>
+
+      <h1 class="hero__title" id="hero-title" style={`--display-fit:${displayFit}`}>
+        <span class="visually-hidden">{hero.name}.</span>
+        {
+          hero.roleLines.map((line, i) => (
+            <span class="hero__line" style={`--reveal-delay:${i * 90}ms`} data-reveal>
+              {line}
+            </span>
+          ))
+        }
+      </h1>
+
+      <p class="hero__name mono">{hero.name}</p>
+
+      <p class="hero__value prose">{hero.valueProp}</p>
+
+      <div class="hero__stack">
+        <p class="label hero__stack-label">{hero.stackLabel}</p>
+        <ul class="tag-list">
+          {hero.coreStack.map((item) => <li class="tag tag--solid">{item}</li>)}
+        </ul>
+      </div>
+
+      <div class="hero__ctas">
+        <a class="btn" href="#work">
+          {hero.ctaPrimary}
+          <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="btn btn--ghost" href="#contact">
+          {hero.ctaSecondary}
+          <span class="btn__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="btn btn--ghost" href={cvHref} download>
+          {hero.ctaResume}
+          <span class="btn__arrow" aria-hidden="true">&darr;</span>
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero__aside">
+      <figure class="hero__portrait">
+        <img
+          src={images.portrait}
+          alt={hero.portraitAlt}
+          width="800"
+          height="800"
+          fetchpriority="high"
+          decoding="async"
+        />
+        <span class="hero__ring" aria-hidden="true"></span>
+      </figure>
+
+      <ul class="hero__availability">
+        {
+          hero.availability.map((item) => (
+            <li>
+              <span class="hero__availability-bar" aria-hidden="true" />
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+
+      <p class="hero__scroll label">
+        {hero.scrollHint}
+        <span aria-hidden="true">&darr;</span>
+      </p>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(2.5rem, 1rem + 6vw, 6rem) var(--space-3xl);
+  }
+
+  .hero__texture {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .hero__inner {
+    position: relative;
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .hero__eyebrow {
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero__dot {
+    width: 0.6rem;
+    height: 0.6rem;
+    background: var(--color-accent);
+    border-radius: 50%;
+  }
+
+  .hero__lead {
+    container-type: inline-size;
+  }
+
+  .hero__title {
+    display: grid;
+    text-transform: uppercase;
+    font-size: var(--text-display);
+    font-size: min(var(--text-display), calc(100cqw / var(--display-fit)));
+  }
+
+  .hero__line {
+    white-space: nowrap;
+  }
+
+  .hero__line:nth-child(3) {
+    color: var(--color-accent);
+  }
+
+  .hero__name {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-sm);
+    border-top: var(--border-thin) solid var(--color-border);
+    font-size: var(--text-label);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .hero__value {
+    margin-top: var(--space-lg);
+    font-size: var(--text-lead);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    max-width: 34ch;
+  }
+
+  .hero__stack {
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: var(--border-thin) solid var(--color-border);
+  }
+
+  .hero__stack-label {
+    margin-bottom: var(--space-xs);
+  }
+
+  .hero__ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+  }
+
+  .hero__ctas .btn {
+    flex: 1 1 15rem;
+  }
+
+  .hero__aside {
+    display: grid;
+    gap: var(--space-lg);
+    align-content: start;
+  }
+
+  .hero__portrait {
+    position: relative;
+    border: var(--border-thin) solid var(--color-portrait-frame);
+  }
+
+  .hero__portrait img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.05);
+  }
+
+  .hero__ring {
+    position: absolute;
+    right: -1rem;
+    bottom: -1rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--color-accent);
+    border-radius: 50%;
+    box-shadow: 0 0 0 6px var(--accent-glow);
+  }
+
+  .hero__availability {
+    display: grid;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  .hero__availability li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .hero__availability-bar {
+    width: 1.5rem;
+    height: var(--border-thin);
+    background: var(--color-accent);
+  }
+
+  .hero__scroll {
+    display: none;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  @media (min-width: 48rem) {
+    .hero__ctas .btn {
+      flex: 0 1 auto;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .hero__inner {
+      grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+      gap: var(--space-3xl);
+      align-items: end;
+    }
+
+    .hero__scroll {
+      display: flex;
+    }
+  }
+</style>

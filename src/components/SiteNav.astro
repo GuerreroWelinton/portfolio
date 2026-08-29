@@ -1,0 +1,404 @@
+---
+import type { Content } from '../i18n';
+import { profile } from '../data/profile';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { nav, localeSwitch, themeSwitch } = content;
+---
+
+<header class="site-nav">
+  <div class="site-nav__bar shell">
+    <a class="site-nav__brand" href="#main">
+      <span class="site-nav__mark" aria-hidden="true">WG</span>
+      <span class="visually-hidden">{profile.name}</span>
+    </a>
+
+    <nav class="site-nav__nav" id="site-nav-panel" aria-label={nav.menuLabel} data-nav-panel>
+      <ul>
+        {
+          nav.items.map((item) => (
+            <li>
+              <a
+                class="site-nav__link"
+                href={item.href}
+                data-label={item.label}
+                data-nav-link
+                data-nav-close
+              >
+                <span>{item.label}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-nav__actions">
+      <a
+        class="site-nav__locale"
+        href={localeSwitch.href}
+        hreflang={localeSwitch.code.toLowerCase()}
+        aria-label={localeSwitch.aria}
+      >
+        {localeSwitch.code}
+      </a>
+      <button
+        class="site-nav__theme"
+        type="button"
+        aria-label={themeSwitch.toDark}
+        data-theme-toggle
+        data-label-dark={themeSwitch.toDark}
+        data-label-light={themeSwitch.toLight}
+      >
+        <svg
+          class="site-nav__theme-icon site-nav__theme-icon--moon"
+          viewBox="0 0 16 16"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M13.4 9.9A5.9 5.9 0 0 1 6.1 2.6 5.9 5.9 0 1 0 13.4 9.9Z"></path>
+        </svg>
+        <svg
+          class="site-nav__theme-icon site-nav__theme-icon--sun"
+          viewBox="0 0 16 16"
+          width="16"
+          height="16"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.4"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <circle cx="8" cy="8" r="3"></circle>
+          <path
+            d="M8 1v1.7M8 13.3V15M15 8h-1.7M2.7 8H1M12.9 3.1l-1.2 1.2M4.3 11.7l-1.2 1.2M12.9 12.9l-1.2-1.2M4.3 4.3 3.1 3.1"
+          ></path>
+        </svg>
+      </button>
+      <button
+        class="site-nav__toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav-panel"
+        aria-label={nav.menuLabel}
+        data-nav-toggle
+      >
+        <span class="site-nav__toggle-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<style>
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--color-bg);
+    border-bottom: var(--border-thick) solid var(--color-border);
+  }
+
+  .site-nav__bar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+    min-height: var(--nav-height);
+  }
+
+  .site-nav__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .site-nav__mark {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    background: var(--color-fg);
+    color: var(--color-bg);
+    font-size: var(--text-micro);
+    letter-spacing: 0.05em;
+  }
+
+  .site-nav__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding-inline: var(--shell-pad);
+    background: var(--color-surface);
+    border-bottom: var(--border-thin) solid var(--color-border);
+  }
+
+  .site-nav__nav[hidden] {
+    display: none;
+  }
+
+  .site-nav__nav ul {
+    display: grid;
+    padding-block: var(--space-sm);
+  }
+
+  .site-nav__link {
+    display: block;
+    padding-block: var(--space-sm);
+    border-bottom: var(--border-hair) solid var(--color-border);
+    font-size: var(--text-h3);
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+  }
+
+  .site-nav__nav li:last-child .site-nav__link {
+    border-bottom: 0;
+  }
+
+  .site-nav__toggle {
+    display: grid;
+    place-content: center;
+    min-width: 3rem;
+    min-height: 2.75rem;
+    border: var(--border-thin) solid var(--color-border);
+  }
+
+  .site-nav__toggle-icon {
+    display: grid;
+    gap: 4px;
+    width: 16px;
+  }
+
+  .site-nav__toggle-icon span {
+    display: block;
+    height: 2px;
+    background: currentColor;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .site-nav__toggle[aria-expanded='true'] .site-nav__toggle-icon span:first-child {
+    transform: translateY(3px) rotate(45deg);
+  }
+
+  .site-nav__toggle[aria-expanded='true'] .site-nav__toggle-icon span:last-child {
+    transform: translateY(-3px) rotate(-45deg);
+  }
+
+  .site-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .site-nav__locale {
+    display: grid;
+    place-items: center;
+    min-width: 3rem;
+    min-height: 2.75rem;
+    padding-inline: var(--space-sm);
+    border: var(--border-thin) solid var(--color-border);
+    font-size: var(--text-micro);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    transition: background-color var(--dur-fast) linear, color var(--dur-fast) linear;
+  }
+
+  .site-nav__locale:hover,
+  .site-nav__locale:focus-visible {
+    background: var(--color-fg);
+    color: var(--color-bg);
+  }
+
+  .site-nav__theme {
+    display: none;
+    place-content: center;
+    min-width: 3rem;
+    min-height: 2.75rem;
+    border: var(--border-thin) solid var(--color-border);
+    transition: background-color var(--dur-fast) linear, color var(--dur-fast) linear;
+  }
+
+  :global(html.js) .site-nav__theme {
+    display: grid;
+  }
+
+  .site-nav__theme:hover,
+  .site-nav__theme:focus-visible {
+    background: var(--color-fg);
+    color: var(--color-bg);
+  }
+
+  .site-nav__theme-icon--sun {
+    display: none;
+  }
+
+  .site-nav__theme.is-dark .site-nav__theme-icon--moon {
+    display: none;
+  }
+
+  .site-nav__theme.is-dark .site-nav__theme-icon--sun {
+    display: block;
+  }
+
+  @media (min-width: 62rem) {
+    .site-nav__nav {
+      position: static;
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+
+    .site-nav__nav ul {
+      display: flex;
+      gap: clamp(1rem, 2.4vw, 2.75rem);
+      padding-block: 0;
+    }
+
+    .site-nav__link {
+      position: relative;
+      overflow: hidden;
+      height: 1.2em;
+      padding-block: 0;
+      border-bottom: 0;
+      font-size: var(--text-label);
+      font-weight: var(--weight-bold);
+      letter-spacing: var(--tracking-widest);
+    }
+
+    .site-nav__link span {
+      display: block;
+      height: 1.2em;
+      line-height: 1.2em;
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+
+    .site-nav__link::after {
+      content: attr(data-label);
+      position: absolute;
+      top: 1.2em;
+      left: 0;
+      line-height: 1.2em;
+      color: var(--color-accent-ink);
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+
+    .site-nav__link:hover span,
+    .site-nav__link:focus-visible span,
+    .site-nav__link:hover::after,
+    .site-nav__link:focus-visible::after {
+      transform: translateY(-1.2em);
+    }
+
+    .site-nav__link.is-current {
+      color: var(--color-accent-ink);
+    }
+
+    .site-nav__toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const themeButton = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+
+  if (themeButton) {
+    const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const themeMetas = document.querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]');
+
+    const storedTheme = (): string | null => {
+      try {
+        return localStorage.getItem('theme');
+      } catch {
+        return null;
+      }
+    };
+
+    const activeTheme = (): 'light' | 'dark' => {
+      const stored = storedTheme();
+      if (stored === 'light' || stored === 'dark') return stored;
+      return systemDark.matches ? 'dark' : 'light';
+    };
+
+    const paint = (theme: 'light' | 'dark') => {
+      themeButton.classList.toggle('is-dark', theme === 'dark');
+      const label =
+        theme === 'dark' ? themeButton.dataset.labelLight : themeButton.dataset.labelDark;
+      if (label) themeButton.setAttribute('aria-label', label);
+      themeMetas.forEach((meta) =>
+        meta.setAttribute('content', theme === 'dark' ? '#000000' : '#ffffff'),
+      );
+    };
+
+    paint(activeTheme());
+
+    themeButton.addEventListener('click', () => {
+      const next = activeTheme() === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+      }
+      paint(next);
+    });
+
+    systemDark.addEventListener('change', () => {
+      if (!storedTheme()) paint(activeTheme());
+    });
+  }
+
+  const toggle = document.querySelector<HTMLButtonElement>('[data-nav-toggle]');
+  const panel = document.querySelector<HTMLElement>('[data-nav-panel]');
+  const desktop = window.matchMedia('(min-width: 62rem)');
+
+  if (toggle && panel) {
+    const setOpen = (open: boolean) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      panel.hidden = !open;
+    };
+
+    const syncViewport = () => {
+      if (desktop.matches) {
+        panel.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+      } else {
+        setOpen(false);
+      }
+    };
+
+    syncViewport();
+    desktop.addEventListener('change', syncViewport);
+
+    toggle.addEventListener('click', () =>
+      setOpen(toggle.getAttribute('aria-expanded') !== 'true'),
+    );
+
+    panel.querySelectorAll('[data-nav-close]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (!desktop.matches) setOpen(false);
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'Escape' &&
+        !desktop.matches &&
+        toggle.getAttribute('aria-expanded') === 'true'
+      ) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+  }
+</script>

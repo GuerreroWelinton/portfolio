@@ -1,0 +1,121 @@
+---
+import '../styles/global.css';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { images, profile } from '../data/profile';
+import type { Content, Locale } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  content: Content;
+}
+
+const { locale, content } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com');
+const ogImage = images.ogImage;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: locale === 'es' ? 'Desarrollador Full Stack' : 'Full Stack Developer',
+  url: canonical.href,
+  image: new URL(images.portrait, canonical).href,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Manta',
+    addressRegion: 'Manabí',
+    addressCountry: 'EC',
+  },
+  sameAs: [profile.links.linkedin, profile.links.githubPersonal, profile.links.githubWork],
+  knowsLanguage: ['es', 'en'],
+  worksFor: { '@type': 'Organization', name: 'ZGames Technology' },
+};
+---
+
+<!doctype html>
+<html lang={content.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical.href} />
+
+    <title>{content.meta.title}</title>
+    <meta name="description" content={content.meta.description} />
+    <meta name="author" content={profile.name} />
+
+    <link rel="alternate" hreflang="en" href={new URL('/', canonical).href} />
+    <link rel="alternate" hreflang="es" href={new URL('/es/', canonical).href} />
+    <link rel="alternate" hreflang="x-default" href={new URL('/', canonical).href} />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={profile.name} />
+    <meta property="og:locale" content={locale === 'es' ? 'es_EC' : 'en_US'} />
+    <meta property="og:title" content={content.meta.title} />
+    <meta property="og:description" content={content.meta.description} />
+    <meta property="og:url" content={canonical.href} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={content.meta.ogAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={content.meta.title} />
+    <meta name="twitter:description" content={content.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;700;900&display=swap"
+    />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
+
+    <script is:inline>
+      document.documentElement.classList.add('js');
+      try {
+        var storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'light' || storedTheme === 'dark') {
+          document.documentElement.dataset.theme = storedTheme;
+          document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+            meta.setAttribute('content', storedTheme === 'dark' ? '#000000' : '#ffffff');
+          });
+        }
+      } catch (error) {
+      }
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">{content.nav.skipToContent}</a>
+    <SiteNav content={content} />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter content={content} />
+
+    <script>
+      const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduced || !('IntersectionObserver' in window)) {
+        targets.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.05 },
+        );
+        targets.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

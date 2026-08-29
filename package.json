@@ -1,0 +1,19 @@
+{
+  "name": "welinton-guerrero-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "astro": "^7.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0"
+  }
+}

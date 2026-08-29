@@ -1,0 +1,25 @@
+---
+import Hero from './Hero.astro';
+import Skills from './Skills.astro';
+import Experience from './Experience.astro';
+import Work from './Work.astro';
+import Education from './Education.astro';
+import About from './About.astro';
+import Contact from './Contact.astro';
+import type { Content, Locale } from '../i18n';
+
+interface Props {
+  content: Content;
+  locale: Locale;
+}
+
+const { content, locale } = Astro.props;
+---
+
+<Hero content={content} locale={locale} />
+<Skills content={content} />
+<Experience content={content} />
+<Work content={content} />
+<Education content={content} />
+<About content={content} />
+<Contact content={content} locale={locale} />

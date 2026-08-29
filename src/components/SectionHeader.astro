@@ -1,0 +1,33 @@
+---
+interface Props {
+  title: string;
+  titleId?: string;
+}
+
+const { title, titleId } = Astro.props;
+---
+
+<header class="section-header" data-reveal>
+  <p class="section-header__rule" aria-hidden="true"></p>
+  <h2 class="section-header__title" id={titleId}>{title}</h2>
+</header>
+
+<style>
+  .section-header {
+    display: grid;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-header__title {
+    font-size: var(--text-h2);
+    text-transform: uppercase;
+  }
+
+  .section-header__rule {
+    width: 4rem;
+    height: var(--border-thick);
+    background: var(--color-accent);
+  }
+
+</style>

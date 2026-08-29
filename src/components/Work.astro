@@ -1,0 +1,573 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { Content } from '../i18n';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { work } = content;
+const labels = work.labels;
+
+const caseId = (index: number) => `caso-${index + 1}`;
+---
+
+<section class="section work" id="work" aria-labelledby="work-title">
+  <div class="shell">
+    <SectionHeader title={work.title} titleId="work-title" />
+
+    <ul class="work__grid" data-reveal>
+      {
+        work.projects.map((project, i) => (
+          <li class="work__cell">
+            <article class="card">
+              <div class="card__media">
+                <img
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width="1200"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="card__body">
+                <h3 class="card__title">{project.name}</h3>
+                <p class="card__summary">{project.summary}</p>
+
+                {project.repoUrl ? (
+                  <a
+                    class="tag card__repo"
+                    href={project.repoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {labels.repo}
+                    <span aria-hidden="true"> &nearr;</span>
+                  </a>
+                ) : (
+                  <span class="tag card__repo card__repo--private">{labels.repoPrivate}</span>
+                )}
+              </div>
+
+              <div class="card__actions">
+                {project.liveUrl && (
+                  <a class="btn" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    {labels.visit}
+                    <span class="btn__arrow" aria-hidden="true">
+                      &nearr;
+                    </span>
+                  </a>
+                )}
+
+                <a class="btn btn--ghost" href={`#${caseId(i)}`} data-case-link>
+                  {labels.openCase}
+                  <span class="btn__arrow" aria-hidden="true">
+                    &rarr;
+                  </span>
+                </a>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="work__details">
+      {
+        work.projects.map((project, i) => (
+          <dialog
+            class="case-dialog"
+            id={caseId(i)}
+            aria-labelledby={`${caseId(i)}-title`}
+            data-case-dialog
+          >
+            <article class="case">
+              <div class="case__bar">
+                <p class="case__meta">
+                  <span class="case__context">{project.context}</span>
+                  <span class="case__kind">{project.kind}</span>
+                  <span class="case__year mono">{project.year}</span>
+                </p>
+                <button class="case__close" type="button" data-case-close>
+                  <span class="visually-hidden">{labels.close}</span>
+                  <span class="case__cross" aria-hidden="true">
+                    &times;
+                  </span>
+                </button>
+              </div>
+
+              <div class="case__media">
+                <img
+                  src={project.image}
+                  alt={project.imageAlt}
+                  width="1600"
+                  height="1000"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+
+              <div class="case__body">
+                <h3 class="case__title" id={`${caseId(i)}-title`}>
+                  {project.name}
+                </h3>
+
+                <dl class="case__facts">
+                  {project.problem && (
+                    <div>
+                      <dt class="label">{labels.problem}</dt>
+                      <dd>{project.problem}</dd>
+                    </div>
+                  )}
+                  <div>
+                    <dt class="label">{labels.solution}</dt>
+                    <dd>{project.solution}</dd>
+                  </div>
+                  {project.role && (
+                    <div>
+                      <dt class="label">{labels.role}</dt>
+                      <dd>{project.role}</dd>
+                    </div>
+                  )}
+                </dl>
+
+                {project.products && (
+                  <div class="products">
+                    <p class="label">{labels.products}</p>
+                    <ul>
+                      {project.products.map((product) => (
+                        <li class="product">
+                          <p class="product__name">
+                            <span>{product.name}</span>
+                            {product.url && product.url !== project.liveUrl && (
+                              <a href={product.url} target="_blank" rel="noopener noreferrer">
+                                {labels.visit}
+                                <span aria-hidden="true"> &nearr;</span>
+                              </a>
+                            )}
+                          </p>
+                          <p class="product__description">{product.description}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                <div class="case__results">
+                  <p class="label">{labels.results}</p>
+                  <ul>
+                    {project.results.map((result) => (
+                      <li>{result}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="case__stack">
+                  <p class="label">{labels.stack}</p>
+                  <ul class="tag-list">
+                    {project.tech.map((tech) => (
+                      <li class="tag">{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="case__actions">
+                  {project.liveUrl && (
+                    <a class="btn" href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                      {labels.visit}
+                      <span class="btn__arrow" aria-hidden="true">
+                        &nearr;
+                      </span>
+                    </a>
+                  )}
+                  {project.repoUrl && (
+                    <a
+                      class="btn btn--ghost"
+                      href={project.repoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {labels.repo}
+                      <span class="btn__arrow" aria-hidden="true">
+                        &nearr;
+                      </span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          </dialog>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+
+  .work__grid {
+    display: grid;
+    gap: var(--space-lg);
+    margin-top: var(--space-2xl);
+  }
+
+  .card {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    background: var(--color-bg);
+    border: var(--border-thin) solid var(--color-border);
+  }
+
+  .card__media {
+    border-bottom: var(--border-thin) solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .card__media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.03);
+  }
+
+  .card__body {
+    display: grid;
+    align-content: start;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+  }
+
+  .card__title {
+    font-size: var(--text-h3);
+    text-transform: uppercase;
+  }
+
+  .card__summary {
+    font-size: var(--text-body);
+    color: var(--color-muted-ink);
+  }
+
+  .card__repo {
+    justify-self: start;
+    margin-top: var(--space-xs);
+    border-color: currentColor;
+  }
+
+  a.card__repo {
+    color: var(--color-accent-ink);
+    transition:
+      background-color var(--dur-fast) linear,
+      color var(--dur-fast) linear,
+      border-color var(--dur-fast) linear;
+  }
+
+  a.card__repo:hover,
+  a.card__repo:focus-visible {
+    background: var(--color-accent-surface);
+    color: var(--color-on-accent);
+    border-color: var(--color-accent-surface);
+  }
+
+  .card__repo--private {
+    color: var(--color-muted-ink);
+  }
+
+  .card__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    padding-top: 0;
+  }
+
+  .card__actions .btn {
+    flex: 1 1 10rem;
+  }
+
+  .case-dialog[open] {
+    width: min(64rem, 100% - 2 * var(--space-md));
+    max-height: min(88dvh, 100%);
+    padding: 0;
+    margin: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    border: var(--border-thick) solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .case-dialog::backdrop {
+    background: rgb(0 0 0 / 0.68);
+  }
+
+  .case {
+    display: grid;
+    align-content: start;
+  }
+
+  .case__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm) var(--space-lg);
+    background: var(--color-bg);
+    border-bottom: var(--border-thin) solid var(--color-border);
+  }
+
+  .case-dialog[open] .case__bar {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+
+  .case__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-micro);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .case__context {
+    padding: 0.2rem 0.45rem;
+    background: var(--color-accent-surface);
+    color: var(--color-on-accent);
+  }
+
+  .case__year {
+    margin-left: auto;
+    color: var(--color-muted-ink);
+  }
+
+  .case__close {
+    display: none;
+  }
+
+  .case-dialog[open] .case__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-left: auto;
+    border: var(--border-thin) solid var(--color-border);
+    transition:
+      background-color var(--dur-fast) linear,
+      color var(--dur-fast) linear,
+      border-color var(--dur-fast) linear;
+  }
+
+  .case-dialog[open] .case__meta .case__year {
+    margin-left: 0;
+  }
+
+  .case__close:hover,
+  .case__close:focus-visible {
+    background: var(--color-accent-surface);
+    color: var(--color-on-accent);
+    border-color: var(--color-accent-surface);
+  }
+
+  .case__cross {
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  .case__media {
+    border-bottom: var(--border-thin) solid var(--color-border);
+    background: var(--color-surface);
+  }
+
+  .case__media img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .case__body {
+    display: grid;
+    align-content: start;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .case__title {
+    font-size: var(--text-h3);
+    text-transform: uppercase;
+  }
+
+  .case__facts {
+    display: grid;
+    gap: var(--space-md);
+    padding-block: var(--space-md);
+    border-block: var(--border-hair) solid var(--color-border);
+  }
+
+  .case__facts dd {
+    margin: 0.35rem 0 0;
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+
+  .products {
+    padding: var(--space-md);
+    border: var(--border-thin) solid var(--color-border);
+  }
+
+  .products ul {
+    display: grid;
+    gap: var(--space-md);
+    margin-top: var(--space-sm);
+  }
+
+  .product__name {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-sm);
+    font-size: var(--text-label);
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+  }
+
+  .product__name a {
+    font-size: var(--text-micro);
+    color: var(--color-accent-ink);
+    border-bottom: var(--border-hair) solid currentColor;
+  }
+
+  .product__description {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+    color: var(--color-muted-ink);
+  }
+
+  .case__results ul {
+    display: grid;
+    gap: var(--space-xs);
+    margin-top: var(--space-sm);
+  }
+
+  .case__results li {
+    position: relative;
+    padding-left: 1.35rem;
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+
+  .case__results li::before {
+    content: '';
+    position: absolute;
+    top: 0.62em;
+    left: 0;
+    width: 0.75rem;
+    height: var(--border-thin);
+    background: var(--color-accent);
+  }
+
+  .case__stack ul {
+    margin-top: var(--space-sm);
+  }
+
+  .case__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 48rem) {
+    .work__grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .card__body,
+    .card__actions {
+      padding: var(--space-xl);
+    }
+
+    .card__actions {
+      padding-top: 0;
+    }
+
+    .case__bar {
+      padding-inline: var(--space-2xl);
+    }
+
+    .case__body {
+      padding: var(--space-2xl);
+    }
+  }
+</style>
+
+<script>
+  const dialogs = new Map<string, HTMLDialogElement>();
+
+  document
+    .querySelectorAll<HTMLDialogElement>('[data-case-dialog]')
+    .forEach((dialog) => dialogs.set(dialog.id, dialog));
+
+  const supported =
+    typeof HTMLDialogElement === 'function' && 'showModal' in HTMLDialogElement.prototype;
+
+  if (supported && dialogs.size > 0) {
+    const root = document.documentElement;
+
+    const open = (dialog: HTMLDialogElement) => {
+      if (dialog.open) return;
+      dialog.showModal();
+      root.classList.add('has-dialog');
+    };
+
+    document.querySelectorAll<HTMLAnchorElement>('[data-case-link]').forEach((link) => {
+      const dialog = dialogs.get(link.hash.slice(1));
+      if (!dialog) return;
+
+      link.setAttribute('aria-haspopup', 'dialog');
+
+      link.addEventListener('click', (event) => {
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (event.button !== 0) return;
+        event.preventDefault();
+        open(dialog);
+      });
+    });
+
+    dialogs.forEach((dialog) => {
+      dialog.addEventListener('close', () => {
+        const stillOpen = [...dialogs.values()].some((other) => other.open);
+        if (!stillOpen) root.classList.remove('has-dialog');
+      });
+
+      dialog.addEventListener('click', (event) => {
+        if (event.target === dialog) dialog.close();
+      });
+
+      dialog
+        .querySelector<HTMLButtonElement>('[data-case-close]')
+        ?.addEventListener('click', () => dialog.close());
+    });
+
+    const openFromHash = () => {
+      const dialog = dialogs.get(window.location.hash.slice(1));
+      if (dialog) open(dialog);
+    };
+
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
+  }
+</script>

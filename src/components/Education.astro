@@ -1,0 +1,154 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { Content } from '../i18n';
+import { profile } from '../data/profile';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { education } = content;
+---
+
+<section class="section education" id="education" aria-labelledby="education-title">
+  <div class="shell">
+    <SectionHeader title={education.title} titleId="education-title" />
+
+    <div class="education__grid">
+      <div class="panel" data-reveal>
+        <h3 class="panel__title label">{education.degreesTitle}</h3>
+        <ul class="panel__list">
+          {
+            education.entries.map((item) => (
+              <li>
+                <p class="panel__heading">{item.degree}</p>
+                <p class="panel__meta">{item.school}</p>
+                <p class="panel__meta mono">
+                  {item.period} · {item.location}
+                </p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div class="panel" data-reveal>
+        <h3 class="panel__title label">{education.certificationTitle}</h3>
+        <div class="panel__list">
+          <p class="panel__heading">{education.certification.title}</p>
+          <p class="panel__meta">{education.certification.issuer}</p>
+          <p class="panel__body">{education.certification.body}</p>
+          <p class="panel__meta mono panel__credential">
+            {education.certification.credentialLabel}
+            <span>{profile.certification.credentialId}</span>
+          </p>
+          <a
+            class="panel__verify label"
+            href={profile.certification.verifyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {education.certification.verifyLabel}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="panel" data-reveal>
+        <h3 class="panel__title label">{education.languagesTitle}</h3>
+        <ul class="panel__list panel__list--rows">
+          {
+            education.languages.map((language) => (
+              <li class="language">
+                <span class="panel__heading">{language.name}</span>
+                <span class="language__level mono">{language.level}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .education__grid {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .panel__list {
+    display: grid;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+  }
+
+  .panel__list--rows {
+    gap: var(--space-sm);
+  }
+
+  .panel__heading {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    line-height: 1.35;
+  }
+
+  .panel__meta {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-sm);
+    color: var(--color-muted-ink);
+  }
+
+  .panel__credential {
+    display: grid;
+    gap: var(--space-2xs);
+    margin-top: var(--space-sm);
+    overflow-wrap: anywhere;
+  }
+
+  .panel__verify {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2xs);
+    margin-top: var(--space-xs);
+    color: var(--color-accent-ink);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+  }
+
+  .panel__body {
+    margin-top: var(--space-sm);
+    font-size: var(--text-sm);
+    line-height: 1.55;
+  }
+
+  .language {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-md);
+    padding-bottom: var(--space-sm);
+    border-bottom: var(--border-hair) solid var(--color-border);
+  }
+
+  .language:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .language__level {
+    font-size: var(--text-micro);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+
+  @media (min-width: 64rem) {
+    .education__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-xl);
+      align-items: start;
+    }
+  }
+</style>

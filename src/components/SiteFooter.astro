@@ -1,0 +1,141 @@
+---
+import type { Content } from '../i18n';
+import { profile } from '../data/profile';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { footer, localeSwitch } = content;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div class="site-footer__identity">
+      <p class="site-footer__name">{profile.name}</p>
+      <p class="site-footer__tagline label">{footer.tagline}</p>
+    </div>
+
+    <ul class="site-footer__links">
+      <li>
+        <a href={profile.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </li>
+      <li>
+        <a href={profile.links.githubPersonal} target="_blank" rel="noopener noreferrer">
+          GitHub {profile.handles.githubPersonal}
+        </a>
+      </li>
+      <li>
+        <a href={profile.links.githubWork} target="_blank" rel="noopener noreferrer">
+          GitHub {profile.handles.githubWork}
+        </a>
+      </li>
+      <li>
+        <a
+          href={localeSwitch.href}
+          lang={localeSwitch.code.toLowerCase()}
+          hreflang={localeSwitch.code.toLowerCase()}
+        >
+          {localeSwitch.label}
+        </a>
+      </li>
+    </ul>
+
+    <div class="site-footer__meta">
+      <p class="label">&copy; {year} {profile.name}. {footer.rights}</p>
+      <p class="label">{footer.builtWith}</p>
+      <a class="site-footer__top label" href="#main">
+        {footer.backToTop}
+        <span aria-hidden="true">&uarr;</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: var(--border-thick) solid var(--color-border);
+    background: var(--color-fg);
+    color: var(--color-bg);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    gap: var(--space-xl);
+    padding-block: var(--space-2xl);
+  }
+
+  .site-footer__name {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-black);
+    letter-spacing: var(--tracking-tight);
+    text-transform: uppercase;
+  }
+
+  .site-footer__tagline {
+    margin-top: var(--space-2xs);
+    color: inherit;
+    opacity: 0.72;
+  }
+
+  .site-footer__links {
+    display: grid;
+    gap: var(--space-xs);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+  }
+
+  .site-footer__links a {
+    display: inline-block;
+    padding-block: 0.35rem;
+    border-bottom: var(--border-hair) solid transparent;
+    transition: color var(--dur-fast) linear, border-color var(--dur-fast) linear;
+  }
+
+  .site-footer__links a:hover,
+  .site-footer__links a:focus-visible {
+    color: var(--color-accent-on-fg);
+    border-bottom-color: var(--color-accent-on-fg);
+  }
+
+  .site-footer__meta {
+    display: grid;
+    gap: var(--space-xs);
+    padding-top: var(--space-lg);
+    border-top: var(--border-hair) solid currentColor;
+  }
+
+  .site-footer__meta .label {
+    color: inherit;
+    opacity: 0.72;
+  }
+
+  .site-footer__top {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    justify-self: start;
+    opacity: 1;
+  }
+
+  .site-footer__top:hover,
+  .site-footer__top:focus-visible {
+    color: var(--color-accent-on-fg);
+  }
+
+  @media (min-width: 64rem) {
+    .site-footer__inner {
+      grid-template-columns: minmax(0, 5fr) minmax(0, 4fr) minmax(0, 3fr);
+      column-gap: var(--space-3xl);
+      align-items: start;
+      padding-block: var(--space-3xl);
+    }
+
+    .site-footer__meta {
+      padding-top: 0;
+      border-top: 0;
+    }
+  }
+</style>

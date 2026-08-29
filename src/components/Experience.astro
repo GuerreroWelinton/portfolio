@@ -1,0 +1,232 @@
+---
+import SectionHeader from './SectionHeader.astro';
+import type { Content } from '../i18n';
+
+interface Props {
+  content: Content;
+}
+
+const { content } = Astro.props;
+const { experience } = content;
+---
+
+<section class="section experience" id="experience" aria-labelledby="experience-title">
+  <div class="shell">
+    <SectionHeader title={experience.title} titleId="experience-title" />
+
+    <ol class="timeline">
+      {
+        experience.entries.map((entry) => (
+          <li class="entry" data-reveal>
+            <div class="entry__aside">
+              <p class="entry__period mono">{entry.period}</p>
+              <p class="entry__location">{entry.location}</p>
+            </div>
+
+            <div class="entry__body">
+              <h3 class="entry__company">{entry.company}</h3>
+              <p class="entry__role">{entry.role}</p>
+              <p class="entry__note">{entry.companyNote}</p>
+
+              {entry.highlights && (
+                <ul class="highlights">
+                  {entry.highlights.map((highlight) => (
+                    <li>
+                      <span class="highlights__value">{highlight.value}</span>
+                      <span class="highlights__label">{highlight.label}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              <ul class="entry__bullets">
+                {entry.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+
+              {entry.tech.length > 0 && (
+                <ul class="tag-list entry__tags">
+                  {entry.tech.map((tech) => (
+                    <li class="tag">{tech}</li>
+                  ))}
+                </ul>
+              )}
+
+              {entry.projectHref && (
+                <p class="entry__link">
+                  <a href={entry.projectHref}>
+                    {entry.projectLabel}
+                    <span aria-hidden="true"> &darr;</span>
+                  </a>
+                </p>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: grid;
+    border-top: var(--border-thin) solid var(--color-border);
+  }
+
+  .entry {
+    display: grid;
+    gap: var(--space-md);
+    padding-block: var(--space-xl);
+    border-bottom: var(--border-thin) solid var(--color-border);
+  }
+
+  .entry:last-child {
+    border-bottom: 0;
+  }
+
+  .entry__aside {
+    display: grid;
+    gap: var(--space-2xs);
+    align-content: start;
+  }
+
+  .entry__period {
+    font-size: var(--text-label);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-accent-ink);
+  }
+
+  .entry__location {
+    font-size: var(--text-sm);
+    color: var(--color-muted-ink);
+  }
+
+  .entry__company {
+    font-size: var(--text-h3);
+    text-transform: uppercase;
+  }
+
+  .entry__role {
+    margin-top: var(--space-2xs);
+    font-size: var(--text-label);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .entry__note {
+    margin-top: var(--space-sm);
+    max-width: var(--measure);
+    font-size: var(--text-sm);
+    color: var(--color-muted-ink);
+  }
+
+  .highlights {
+    display: grid;
+    margin-top: var(--space-lg);
+    border: var(--border-thin) solid var(--color-border);
+    max-width: var(--measure);
+  }
+
+  .highlights li {
+    padding: var(--space-md);
+    border-bottom: var(--border-hair) solid var(--color-border);
+  }
+
+  .highlights li:last-child {
+    border-bottom: 0;
+  }
+
+  .highlights__value {
+    display: block;
+    font-size: var(--text-h3);
+    font-weight: var(--weight-black);
+    line-height: 1;
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-accent);
+  }
+
+  .highlights__label {
+    display: block;
+    margin-top: var(--space-2xs);
+    font-size: var(--text-micro);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-muted-ink);
+  }
+
+  .entry__bullets {
+    display: grid;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    max-width: var(--measure);
+  }
+
+  .entry__bullets li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: var(--text-sm);
+    line-height: 1.6;
+  }
+
+  .entry__bullets li::before {
+    content: '';
+    position: absolute;
+    top: 0.65em;
+    left: 0;
+    width: 0.85rem;
+    height: var(--border-thin);
+    background: var(--color-fg);
+  }
+
+  .entry__tags {
+    margin-top: var(--space-lg);
+  }
+
+  .entry__link {
+    margin-top: var(--space-lg);
+    font-size: var(--text-label);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+  }
+
+  .entry__link a {
+    border-bottom: var(--border-thin) solid var(--color-accent);
+    padding-bottom: 0.15rem;
+    transition: color var(--dur-fast) linear;
+  }
+
+  .entry__link a:hover {
+    color: var(--color-accent-ink);
+  }
+
+  @media (min-width: 48rem) {
+    .highlights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .highlights li {
+      border-bottom: 0;
+      border-right: var(--border-hair) solid var(--color-border);
+    }
+
+    .highlights li:last-child {
+      border-right: 0;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .entry {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+      gap: var(--space-3xl);
+      padding-block: var(--space-2xl);
+    }
+  }
+</style>
