@@ -8,7 +8,7 @@ export const en: Content = {
     title: 'Welinton Guerrero | Full Stack Developer',
     description:
       'Full Stack Developer in Manta, Ecuador. I build betting platforms, e-commerce and internal tools with Angular, TypeScript and Node.js. Available for remote and freelance work.',
-    ogAlt: 'Welinton Guerrero, Full Stack Developer',
+    ogAlt: 'Welinton Guerrero, IT Engineer and Full Stack Developer',
   },
   themeSwitch: {
     toDark: 'Switch to dark theme',

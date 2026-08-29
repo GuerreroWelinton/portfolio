@@ -8,7 +8,7 @@ export const es: Content = {
     title: 'Welinton Guerrero | Desarrollador Full Stack',
     description:
       'Desarrollador Full Stack en Manta, Ecuador. Construyo plataformas de apuestas, e-commerce y herramientas internas con Angular, TypeScript y Node.js. Disponible para trabajo remoto y freelance.',
-    ogAlt: 'Welinton Guerrero, Desarrollador Full Stack',
+    ogAlt: 'Welinton Guerrero, Ingeniero en TI y Desarrollador Full Stack',
   },
   themeSwitch: {
     toDark: 'Cambiar al tema oscuro',
