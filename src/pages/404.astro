@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getContent } from '../i18n';
+
+const locale = 'en' as const;
+const content = getContent(locale);
+---
+
+<BaseLayout locale={locale} content={content}>
+  <section class="section notfound" aria-labelledby="notfound-title">
+    <div class="shell">
+      <p class="notfound__code" aria-hidden="true">404</p>
+      <h1 class="notfound__title" id="notfound-title">This page does not exist</h1>
+      <p class="notfound__body">
+        The link may be broken, or the page may have moved.
+      </p>
+      <p class="notfound__body" lang="es">
+        Puede que el enlace esté roto o que la página haya cambiado de sitio.
+      </p>
+      <p class="notfound__links">
+        <a href="/">Go to the portfolio</a>
+        <a href="/es/" hreflang="es" lang="es">Ir al portafolio</a>
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    display: grid;
+    align-content: center;
+    min-height: 60svh;
+  }
+
+  .notfound__code {
+    font-size: clamp(4rem, 14vw, 9rem);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+  }
+
+  .notfound__title {
+    margin-top: var(--space-md);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+  }
+
+  .notfound__body {
+    margin-top: var(--space-sm, 0.5rem);
+    max-width: var(--measure);
+  }
+
+  .notfound__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+  }
+
+  .notfound__links a {
+    border-bottom: var(--border-thin) solid currentColor;
+    padding-bottom: 0.15em;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
