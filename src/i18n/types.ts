@@ -23,8 +23,8 @@ export interface Project {
   products?: ProjectProduct[];
   results: string[];
   tech: readonly string[];
-  image: string;
-  imageAlt: string;
+  image?: string;
+  imageAlt?: string;
   liveUrl?: string;
   repoUrl?: string;
 }
@@ -102,6 +102,7 @@ export interface Content {
       repo: string;
       repoPrivate: string;
       close: string;
+      inProgress: string;
     };
     projects: Project[];
   };

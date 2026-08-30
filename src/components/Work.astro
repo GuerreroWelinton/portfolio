@@ -23,14 +23,21 @@ const caseId = (index: number) => `caso-${index + 1}`;
           <li class="work__cell">
             <article class="card">
               <div class="card__media">
-                <img
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width="1200"
-                  height="900"
-                  loading="lazy"
-                  decoding="async"
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width="1200"
+                    height="900"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="media-pending">
+                    <span class="media-pending__grid pattern-grid" aria-hidden="true" />
+                    <span class="media-pending__label label">{labels.inProgress}</span>
+                  </div>
+                )}
               </div>
 
               <div class="card__body">
@@ -100,14 +107,21 @@ const caseId = (index: number) => `caso-${index + 1}`;
               </div>
 
               <div class="case__media">
-                <img
-                  src={project.image}
-                  alt={project.imageAlt}
-                  width="1600"
-                  height="1000"
-                  loading="lazy"
-                  decoding="async"
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    width="1600"
+                    height="1000"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <div class="media-pending">
+                    <span class="media-pending__grid pattern-grid" aria-hidden="true" />
+                    <span class="media-pending__label label">{labels.inProgress}</span>
+                  </div>
+                )}
               </div>
 
               <div class="case__body">
@@ -232,6 +246,22 @@ const caseId = (index: number) => `caso-${index + 1}`;
     aspect-ratio: 16 / 10;
     object-fit: cover;
     filter: grayscale(1) contrast(1.03);
+  }
+
+  .media-pending {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 16 / 10;
+  }
+
+  .media-pending__grid {
+    position: absolute;
+    inset: 0;
+  }
+
+  .media-pending__label {
+    position: relative;
   }
 
   .card__body {

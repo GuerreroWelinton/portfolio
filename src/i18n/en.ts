@@ -58,6 +58,7 @@ export const en: Content = {
       repo: 'Public repository',
       repoPrivate: 'Private repository',
       close: 'Close',
+      inProgress: 'Screenshot in progress',
     },
     projects: [
       {
@@ -96,7 +97,7 @@ export const en: Content = {
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Sorti365 betting portal interface (placeholder image)',
+        imageAlt: 'Sorti365 betting portal: live match odds above a grid of casino games',
         liveUrl: 'https://sorti365.com/',
       },
       {
@@ -117,7 +118,7 @@ export const en: Content = {
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL', 'SQL Server', 'Google Sheets API'],
         image: images.projects.tecnored,
-        imageAlt: 'Tecnored Ecuador e-commerce interface (placeholder image)',
+        imageAlt: 'Tecnored storefront home page with its product promotion banner',
         liveUrl: 'https://tecnoredec.com/',
       },
       {
@@ -145,7 +146,7 @@ export const en: Content = {
           'GitHub Actions',
         ],
         image: images.projects.designSystem,
-        imageAlt: 'Component library documentation catalogue (placeholder image)',
+        imageAlt: 'Storybook canvas showing a games carousel component, the component tree and the controls panel',
         liveUrl: 'https://guerrerowelinton.github.io/academic-unir-tesis/storybook/',
         repoUrl: 'https://github.com/GuerreroWelinton/academic-unir-tesis',
       },
@@ -162,8 +163,6 @@ export const en: Content = {
           'Deployed on DigitalOcean with Docker, Docker Compose and Nginx.',
         ],
         tech: ['Angular', 'NgRx', 'Node.js', 'TypeScript', 'Docker', 'DigitalOcean'],
-        image: images.projects.labSystem,
-        imageAlt: 'Laboratory booking system interface (placeholder image)',
         repoUrl: 'https://github.com/GuerreroWelinton/academic-uleam-tesis',
       },
       {
@@ -184,8 +183,6 @@ export const en: Content = {
           'Integration tests run on a real PostgreSQL, because audit immutability is a database trigger no mock can observe.',
         ],
         tech: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Zod', 'Vitest'],
-        image: images.projects.clearFund,
-        imageAlt: 'Clear Fund savings management interface (placeholder image)',
         repoUrl: 'https://github.com/GuerreroWelinton/product-clear-fund',
       },
     ],

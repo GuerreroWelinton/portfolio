@@ -31,11 +31,9 @@ export const images = {
    */
   ogImage: '/og.png',
   projects: {
-    sorti365: 'https://placehold.co/1600x1000/000000/FFFFFF?text=Sorti365',
-    tecnored: 'https://placehold.co/1600x1000/000000/FFFFFF?text=Tecnored+Ecuador',
-    designSystem: 'https://placehold.co/1600x1000/F2F2F2/000000?text=%40zgames%2Fui',
-    labSystem: 'https://placehold.co/1600x1000/F2F2F2/000000?text=Lab+Booking+System',
-    clearFund: 'https://placehold.co/1600x1000/F2F2F2/000000?text=Clear+Fund',
+    sorti365: '/projects/sorti365.webp',
+    tecnored: '/projects/tecnored.webp',
+    designSystem: '/projects/designSystem.webp',
   },
 } as const;
 

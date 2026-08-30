@@ -58,6 +58,7 @@ export const es: Content = {
       repo: 'Repositorio público',
       repoPrivate: 'Repositorio privado',
       close: 'Cerrar',
+      inProgress: 'Captura en proceso',
     },
     projects: [
       {
@@ -96,7 +97,7 @@ export const es: Content = {
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Interfaz del portal de apuestas Sorti365 (imagen temporal)',
+        imageAlt: 'Portal de apuestas Sorti365: cuotas de partidos en vivo sobre una grilla de juegos de casino',
         liveUrl: 'https://sorti365.com/',
       },
       {
@@ -117,7 +118,7 @@ export const es: Content = {
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL', 'SQL Server', 'Google Sheets API'],
         image: images.projects.tecnored,
-        imageAlt: 'Interfaz del e-commerce Tecnored Ecuador (imagen temporal)',
+        imageAlt: 'Portada de la tienda Tecnored con su banner de promoción de productos',
         liveUrl: 'https://tecnoredec.com/',
       },
       {
@@ -145,7 +146,7 @@ export const es: Content = {
           'GitHub Actions',
         ],
         image: images.projects.designSystem,
-        imageAlt: 'Catálogo de documentación de la biblioteca de componentes (imagen temporal)',
+        imageAlt: 'Canvas de Storybook con un componente de carrusel de juegos, el árbol de componentes y el panel de controles',
         liveUrl: 'https://guerrerowelinton.github.io/academic-unir-tesis/storybook/',
         repoUrl: 'https://github.com/GuerreroWelinton/academic-unir-tesis',
       },
@@ -162,8 +163,6 @@ export const es: Content = {
           'Desplegado en DigitalOcean con Docker, Docker Compose y Nginx.',
         ],
         tech: ['Angular', 'NgRx', 'Node.js', 'TypeScript', 'Docker', 'DigitalOcean'],
-        image: images.projects.labSystem,
-        imageAlt: 'Interfaz del sistema de reserva de laboratorios (imagen temporal)',
         repoUrl: 'https://github.com/GuerreroWelinton/academic-uleam-tesis',
       },
       {
@@ -184,8 +183,6 @@ export const es: Content = {
           'Las pruebas de integración corren contra un PostgreSQL real, porque la inmutabilidad de la auditoría es un trigger que ningún mock puede observar.',
         ],
         tech: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Zod', 'Vitest'],
-        image: images.projects.clearFund,
-        imageAlt: 'Interfaz de gestión de Clear Fund (imagen temporal)',
         repoUrl: 'https://github.com/GuerreroWelinton/product-clear-fund',
       },
     ],
