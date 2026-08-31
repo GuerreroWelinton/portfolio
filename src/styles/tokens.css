@@ -13,8 +13,6 @@
 
   --color-muted-ink: #4a4a4a;
 
-  --color-portrait-frame: var(--color-border);
-
   --font-sans: 'Archivo', 'Helvetica Neue', Helvetica, Arial, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
@@ -69,8 +67,6 @@
   --pattern-dots: 16px;
   --pattern-opacity: 0.045;
 
-  --accent-glow: rgb(15 122 74 / 0.16);
-
   color-scheme: light;
 }
 
@@ -89,9 +85,7 @@
     --color-on-accent: #000000;
 
     --color-muted-ink: #b4b4b4;
-    --color-portrait-frame: var(--color-accent);
     --pattern-opacity: 0.07;
-    --accent-glow: rgb(63 185 80 / 0.2);
 
     color-scheme: dark;
   }
@@ -111,9 +105,7 @@
   --color-on-accent: #000000;
 
   --color-muted-ink: #b4b4b4;
-  --color-portrait-frame: var(--color-accent);
   --pattern-opacity: 0.07;
-  --accent-glow: rgb(63 185 80 / 0.2);
 
   color-scheme: dark;
 }

@@ -87,12 +87,11 @@ const displayFit = Math.max(measuredFit, MIN_FIT[locale]).toFixed(2);
         <img
           src={images.portrait}
           alt={hero.portraitAlt}
-          width="800"
-          height="800"
+          width="720"
+          height="720"
           fetchpriority="high"
           decoding="async"
         />
-        <span class="hero__ring" aria-hidden="true"></span>
       </figure>
 
       <ul class="hero__availability">
@@ -209,26 +208,15 @@ const displayFit = Math.max(measuredFit, MIN_FIT[locale]).toFixed(2);
   }
 
   .hero__portrait {
-    position: relative;
-    border: var(--border-thin) solid var(--color-portrait-frame);
+    border: var(--border-thin) solid var(--color-border);
   }
 
   .hero__portrait img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    filter: grayscale(1) contrast(1.05);
-  }
-
-  .hero__ring {
-    position: absolute;
-    right: -1rem;
-    bottom: -1rem;
-    width: 3.5rem;
-    height: 3.5rem;
-    background: var(--color-accent);
-    border-radius: 50%;
-    box-shadow: 0 0 0 6px var(--accent-glow);
+    filter: contrast(1.05);
+    mask-image: linear-gradient(to bottom, #000 58%, transparent 96%);
   }
 
   .hero__availability {
