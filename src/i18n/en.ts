@@ -240,7 +240,7 @@ export const en: Content = {
         bullets: [
           'Built the online store and its admin panel with PHP and JavaScript.',
           'Automated the inventory sync and the bulk catalogue updates.',
-          'Maintain the system and take on requests as they come up.',
+          'Keep the store running in production and take on the changes the client asks for.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
         projectHref: '#work',

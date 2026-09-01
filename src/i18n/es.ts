@@ -240,7 +240,7 @@ export const es: Content = {
         bullets: [
           'Construí la tienda en línea y su panel administrativo con PHP y JavaScript.',
           'Automaticé la sincronización de inventario y la carga masiva del catálogo.',
-          'Doy mantenimiento y atiendo las solicitudes del cliente cuando surgen.',
+          'Mantengo la tienda en producción y atiendo los cambios que pide el cliente.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
         projectHref: '#work',
