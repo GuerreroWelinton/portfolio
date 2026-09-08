@@ -301,7 +301,7 @@ export const en: Content = {
     languagesTitle: 'Languages',
     languages: [
       { name: 'Spanish', level: 'Native' },
-      { name: 'English', level: 'B1, intermediate' },
+      { name: 'English', level: 'B2, upper-intermediate' },
     ],
   },
   skills: {
