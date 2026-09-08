@@ -103,7 +103,7 @@ export const en: Content = {
       {
         name: 'New store, untouched legacy',
         kind: 'Production, e-commerce',
-        year: '2025 to now',
+        year: '2025 to 2026',
         context: 'Freelance',
         summary: 'Online store and admin panel for a company that sells technology equipment.',
         problem:
@@ -235,12 +235,12 @@ export const en: Content = {
         company: 'Tecnored Ecuador',
         companyNote: 'Tecnored sells technology equipment through an online store.',
         role: 'Freelance Full Stack Developer',
-        period: 'October 2025 to now',
+        period: 'October 2025 to August 2026',
         location: 'Manta, Ecuador. Remote, on demand.',
         bullets: [
           'Built the online store and its admin panel with PHP and JavaScript.',
           'Automated the inventory sync and the bulk catalogue updates.',
-          'Keep the store running in production and take on the changes the client asks for.',
+          'Kept the store running in production and took on the changes the client asked for.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
         projectHref: '#work',

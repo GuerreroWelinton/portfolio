@@ -103,7 +103,7 @@ export const es: Content = {
       {
         name: 'Tienda nueva, sistema legado intacto',
         kind: 'Producción, e-commerce',
-        year: '2025 a la actualidad',
+        year: '2025 a 2026',
         context: 'Freelance',
         summary: 'Tienda en línea y panel administrativo para una empresa que vende equipos tecnológicos.',
         problem:
@@ -235,12 +235,12 @@ export const es: Content = {
         company: 'Tecnored Ecuador',
         companyNote: 'Tecnored vende equipos tecnológicos por una tienda en línea.',
         role: 'Desarrollador Full Stack freelance',
-        period: 'Octubre 2025 a la actualidad',
+        period: 'Octubre 2025 a agosto 2026',
         location: 'Manta, Ecuador. Remoto, por demanda.',
         bullets: [
           'Construí la tienda en línea y su panel administrativo con PHP y JavaScript.',
           'Automaticé la sincronización de inventario y la carga masiva del catálogo.',
-          'Mantengo la tienda en producción y atiendo los cambios que pide el cliente.',
+          'Mantuve la tienda en producción y atendí los cambios que pidió el cliente.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
         projectHref: '#work',
