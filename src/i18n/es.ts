@@ -7,8 +7,8 @@ export const es: Content = {
   meta: {
     title: 'Welinton Guerrero | Desarrollador Full Stack',
     description:
-      'Desarrollador Full Stack en Manta, Ecuador. Construyo plataformas de apuestas, e-commerce y herramientas internas con Angular, TypeScript y Node.js. Disponible para trabajo remoto y freelance.',
-    ogAlt: 'Welinton Guerrero, Ingeniero de Software y Desarrollador Full Stack',
+      'Desarrollador Full Stack en Manta, Ecuador. Construyo plataformas de iGaming, e-commerce y herramientas internas con Angular, TypeScript y Node.js. Disponible para trabajo remoto y freelance.',
+    ogAlt: 'Welinton Guerrero, Software Engineer y Full Stack Developer',
   },
   themeSwitch: {
     toDark: 'Cambiar al tema oscuro',
@@ -32,7 +32,7 @@ export const es: Content = {
     name: 'Welinton Guerrero',
     roleLines: ['Desarrollador', 'Full Stack'],
     valueProp:
-      'Construyo plataformas web que sirven a varias empresas desde un mismo código. Más de 3 años en productos de apuestas, e-commerce y herramientas internas.',
+      'Construyo plataformas web multi-tenant que le dan a cada operador su propia marca desde un mismo código. Más de 3 años en productos de iGaming, e-commerce y herramientas internas.',
     availability: ['Disponible para posiciones remotas', 'Disponible para proyectos freelance'],
     stackLabel: 'Stack principal',
     coreStack: stacks.core,
@@ -67,23 +67,23 @@ export const es: Content = {
         year: '2023 a la actualidad',
         context: 'ZGames Technology',
         summary:
-          'Plataforma multi-tenant de apuestas deportivas y casino. Un mismo código sirve a varios operadores y cada uno lleva su propia marca.',
+          'Plataforma multi-tenant de iGaming, deportes y casino. Un mismo código construido para alojar a varios operadores, cada uno con su propia marca.',
         problem:
-          'El encargo era una plataforma de apuestas y casino para un solo operador. A mitad del desarrollo vimos que podía servir a otras casas de apuestas. Bifurcar el código por cliente la habría vuelto imposible de mantener.',
+          'El encargo era una plataforma de iGaming para un solo operador. A mitad del desarrollo vimos que podía servir también a otros operadores. Bifurcar el código por cliente la habría vuelto imposible de mantener.',
         solution:
-          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé los servicios de usuarios, reportes, apuestas, transacciones y configuración de cuenta.',
+          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé los servicios de usuarios, reportes, transacciones y configuración de cuenta.',
         role: 'Desarrollador Full Stack en el equipo que la construyó desde cero. Arquitectura frontend, servicios backend, integraciones con proveedores.',
         products: [
           {
             name: 'Sorti365',
             description:
-              'Portal público de apuestas. Sorti365 es el cliente, y el mismo portal se entrega a otros operadores con tokens distintos.',
+              'Portal público de iGaming. Sorti365 es el cliente, y el mismo portal puede entregarse a otros operadores con tokens distintos.',
             url: 'https://sorti365.com/',
           },
           {
             name: 'ZGames BackOffice',
             description:
-              'Administración del portal de apuestas. Se construyó una vez y se reutiliza entre clientes.',
+              'Administración del portal de iGaming. Se construyó una vez para reutilizarse entre operadores.',
           },
           {
             name: 'SortiCenter',
@@ -91,13 +91,13 @@ export const es: Content = {
           },
         ],
         results: [
-          'Un solo código llega a varios operadores, cada uno con su marca.',
-          'Integraciones de casino y sportsbook probadas contra flujos de dinero reales antes de certificar.',
+          'Un solo código que da una marca propia por operador, en vez de un fork por cliente.',
+          'Integraciones de sportsbook y casino probadas contra flujos de dinero reales antes de la certificación del operador.',
           'Back office y gestión interna construidos junto al portal público.',
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Portal de apuestas Sorti365: cuotas de partidos en vivo sobre una grilla de juegos de casino',
+        imageAlt: 'Portal de iGaming Sorti365: cuotas de partidos en vivo sobre una grilla de juegos de casino',
         liveUrl: 'https://sorti365.com/',
       },
       {
@@ -192,7 +192,7 @@ export const es: Content = {
     lead: 'Angular es mi punto fuerte, pero rara vez me quedo en un solo lado del producto.',
     paragraphs: [
       'Iba a estudiar contabilidad hasta que alguien dijo que la informática no era para cualquiera, y me lo tomé personal. Programando en PSeInt, Java y Visual Basic descubrí que una idea podía convertirse en algo que funciona, y esa curiosidad me llevó a la ingeniería y después al máster en diseño de interfaz web.',
-      'Hoy soy Ingeniero en Tecnologías de la Información y trabajo como Desarrollador Full Stack. Hay días de construir una interfaz y otros de decidir cómo se mueven los datos entre servicios, conectar una API externa o resolver algo en el backend que el usuario igual termina notando.',
+      'Hoy trabajo como Software Engineer y Full Stack Developer. Hay días de construir una interfaz y otros de decidir cómo se mueven los datos entre servicios, conectar una API externa o resolver algo en el backend que el usuario igual termina notando.',
       'Suelo meterme en las decisiones técnicas del producto y no solo en la parte que me toca, aunque buena parte del trabajo ni siquiera es técnica. Dar soporte cuando algo falla en producción o sentarse a acordar en una reunión también es construir el producto.',
     ],
   },
@@ -201,7 +201,7 @@ export const es: Content = {
     entries: [
       {
         company: 'ZGames Technology',
-        companyNote: 'ZGames desarrolla tecnología para la industria de las apuestas.',
+        companyNote: 'ZGames desarrolla tecnología para la industria del iGaming.',
         role: 'Desarrollador Full Stack',
         period: 'Julio 2023 a la actualidad',
         location: 'Manta, Ecuador. Presencial.',
@@ -213,8 +213,8 @@ export const es: Content = {
         bullets: [
           'Sostengo la arquitectura frontend del portal público y los componentes que reutiliza el equipo.',
           'Ayudo a definir los estándares de arquitectura, reviso código y evito que la deuda técnica se acumule.',
-          'Integro proveedores de casino y sportsbook, y pruebo los flujos de dinero antes de certificar.',
-          'Programo servicios backend en Node.js y TypeScript, con consultas en MongoDB para reportes, gestión de usuarios, apuestas, transacciones y configuraciones.',
+          'Integro proveedores de sportsbook y casino, y pruebo los flujos de dinero antes de la certificación del operador.',
+          'Programo servicios backend en Node.js y TypeScript, con consultas en MongoDB para reportes, gestión de usuarios, transacciones y configuraciones.',
           'Agrego logs estructurados en Seq a los servicios para seguir cómo se comportan los flujos en producción.',
         ],
         tech: [

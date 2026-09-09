@@ -7,7 +7,7 @@ export const en: Content = {
   meta: {
     title: 'Welinton Guerrero | Full Stack Developer',
     description:
-      'Full Stack Developer in Manta, Ecuador. I build betting platforms, e-commerce and internal tools with Angular, TypeScript and Node.js. Available for remote and freelance work.',
+      'Full Stack Developer in Manta, Ecuador. I build iGaming platforms, e-commerce and internal tools with Angular, TypeScript and Node.js. Available for remote and freelance work.',
     ogAlt: 'Welinton Guerrero, Software Engineer and Full Stack Developer',
   },
   themeSwitch: {
@@ -32,7 +32,7 @@ export const en: Content = {
     name: 'Welinton Guerrero',
     roleLines: ['Full Stack', 'Developer'],
     valueProp:
-      'I build web platforms that serve several companies from one codebase. 3+ years on betting products, e-commerce and internal tools.',
+      'I build multi-tenant web platforms that give each operator its own brand from one codebase. 3+ years on iGaming products, e-commerce and internal tools.',
     availability: ['Available for remote roles', 'Available for freelance projects'],
     stackLabel: 'Core stack',
     coreStack: stacks.core,
@@ -67,23 +67,23 @@ export const en: Content = {
         year: '2023 to now',
         context: 'ZGames Technology',
         summary:
-          'A multi-tenant platform for sports betting and casino. One codebase serves several operators, and each one carries its own brand.',
+          'A multi-tenant iGaming platform for sportsbook and casino. One codebase built to host several operators, each one carrying its own brand.',
         problem:
-          'The brief was a betting and casino platform for one operator. Partway through we saw it could serve other betting houses. Forking the code per client would have made it impossible to maintain.',
+          'The brief was an iGaming platform for one operator. Partway through we saw it could serve other operators too. Forking the code per client would have made it impossible to maintain.',
         solution:
-          'I structured the Angular frontend and its base components so the whole look changes by swapping design tokens. On the backend I wrote the services for users, reports, bets, transactions and account settings.',
+          'I structured the Angular frontend and its base components so the whole look changes by swapping design tokens. On the backend I wrote the services for users, reports, transactions and account settings.',
         role: 'Full Stack Developer on the team that built it from scratch. Frontend architecture, backend services, provider integrations.',
         products: [
           {
             name: 'Sorti365',
             description:
-              'Public betting portal. Sorti365 is the client, and the same portal ships to other operators with different tokens.',
+              'Public iGaming portal. Sorti365 is the client, and the same portal can ship to other operators with different tokens.',
             url: 'https://sorti365.com/',
           },
           {
             name: 'ZGames BackOffice',
             description:
-              'Administration for the betting portal. Built once and reused across clients.',
+              'Administration for the iGaming portal. Built once, to be reused across operators.',
           },
           {
             name: 'SortiCenter',
@@ -91,13 +91,13 @@ export const en: Content = {
           },
         ],
         results: [
-          'One codebase ships to several operators, each with its own brand.',
-          'Casino and sportsbook integrations tested against real money flows before certification.',
+          'One codebase that gives a separate brand per operator, instead of a fork per client.',
+          'Sportsbook and casino integrations tested against real money flows before certification by the operator.',
           'Back office and internal management built alongside the public portal.',
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Sorti365 betting portal: live match odds above a grid of casino games',
+        imageAlt: 'Sorti365 iGaming portal: live match odds above a grid of casino games',
         liveUrl: 'https://sorti365.com/',
       },
       {
@@ -192,7 +192,7 @@ export const en: Content = {
     lead: 'Angular is my strongest area, but I rarely stay on one side of the product.',
     paragraphs: [
       'I was going to study accounting until someone told me computing was not for everyone, and I took it personally. Writing my first programs in PSeInt, Java and Visual Basic I found out an idea could turn into something that runs, and that curiosity took me to the engineering degree and later to the master in web interface design.',
-      'Today I am an Information Technology Engineer working as a Full Stack Developer. Some days are for building an interface and others for deciding how data moves between services, plugging in an external API, or fixing something in the backend that the user ends up feeling anyway.',
+      'Today I work as a Software Engineer and Full Stack Developer. Some days are for building an interface and others for deciding how data moves between services, plugging in an external API, or fixing something in the backend that the user ends up feeling anyway.',
       'I get into the technical decisions on the product and not only the part assigned to me, though a good share of the work is not technical at all. Answering support when something breaks in production, or sitting in a meeting to agree on what comes next, is building the product too.',
     ],
   },
@@ -201,7 +201,7 @@ export const en: Content = {
     entries: [
       {
         company: 'ZGames Technology',
-        companyNote: 'ZGames builds technology for the betting industry.',
+        companyNote: 'ZGames builds technology for the iGaming industry.',
         role: 'Full Stack Developer',
         period: 'July 2023 to now',
         location: 'Manta, Ecuador. On-site.',
@@ -213,8 +213,8 @@ export const en: Content = {
         bullets: [
           'Own the frontend architecture of the public portal and the components the team reuses.',
           'Help set the architectural standards, review code and keep technical debt from piling up.',
-          'Integrate casino and sportsbook providers, and test the money flows before certification.',
-          'Write backend services in Node.js and TypeScript, with MongoDB queries for reports, user management, bets, transactions and settings.',
+          'Integrate sportsbook and casino providers, and test the money flows before certification by the operator.',
+          'Write backend services in Node.js and TypeScript, with MongoDB queries for reports, user management, transactions and settings.',
           'Add structured logs in Seq to the services and follow how the flows behave in production.',
         ],
         tech: [
