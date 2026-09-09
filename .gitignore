@@ -6,6 +6,7 @@ npm-debug.log*
 
 # Local tooling cache.
 .atl/
+.codegraph/
 
 # Working material
 resources/
