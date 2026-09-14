@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
-import { images, profile } from '../data/profile';
+import { images, profile, stacks } from '../data/profile';
 import type { Content, Locale } from '../i18n';
 
 interface Props {
@@ -20,7 +20,7 @@ const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
   name: profile.name,
-  jobTitle: locale === 'es' ? 'Desarrollador Full Stack' : 'Full Stack Developer',
+  jobTitle: 'Software Engineer · Full Stack Developer',
   url: canonical.href,
   image: new URL(images.portrait, canonical).href,
   address: {
@@ -31,6 +31,12 @@ const personSchema = {
   },
   sameAs: [profile.links.linkedin, profile.links.githubPersonal, profile.links.githubWork],
   knowsLanguage: ['es', 'en'],
+  knowsAbout: [
+    ...stacks.frontend,
+    ...stacks.backend,
+    ...stacks.testing,
+    ...stacks.devops,
+  ],
   worksFor: { '@type': 'Organization', name: 'ZGames Technology' },
 };
 ---
