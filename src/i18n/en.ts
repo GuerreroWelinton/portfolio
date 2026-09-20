@@ -97,7 +97,7 @@ export const en: Content = {
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Sorti365 iGaming portal: live match odds above a grid of casino games',
+        imageAlt: 'Sorti365 iGaming portal: live match odds above a grid of games',
         liveUrl: 'https://sorti365.com/',
       },
       {

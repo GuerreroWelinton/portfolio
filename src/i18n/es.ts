@@ -97,7 +97,7 @@ export const es: Content = {
         ],
         tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
         image: images.projects.sorti365,
-        imageAlt: 'Portal de iGaming Sorti365: cuotas de partidos en vivo sobre una grilla de juegos de casino',
+        imageAlt: 'Portal de iGaming Sorti365: cuotas de partidos en vivo sobre una grilla de juegos',
         liveUrl: 'https://sorti365.com/',
       },
       {
