@@ -41,18 +41,23 @@ export const stacks = {
   core: ['Angular', 'TypeScript', 'Node.js', 'MongoDB', 'Vitest', 'Docker'],
   frontend: [
     'Angular',
+    'TypeScript',
     'RxJS',
     'NgRx',
     'Signals',
-    'JavaScript',
-    'TypeScript',
-    'CSS',
     'React',
     'Storybook',
   ],
-  backend: ['Node.js', 'Python', 'PHP', 'MongoDB', 'PostgreSQL', 'MySQL'],
-  testing: ['Vitest', 'Testing Library', 'Chromatic'],
-  devops: ['Docker', 'GitHub Actions', 'DigitalOcean', 'Seq'],
+  backend: ['Node.js', 'Spring Boot', 'Java', 'Python', 'PHP'],
+  database: ['PostgreSQL', 'MongoDB', 'MySQL', 'Redis'],
+  devops: [
+    'Vitest',
+    'Testing Library',
+    'Docker',
+    'GitHub Actions',
+    'Seq',
+    'DigitalOcean',
+  ],
 } as const;
 
 export const sectionIds = {

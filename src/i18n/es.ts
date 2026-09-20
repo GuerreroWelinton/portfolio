@@ -175,8 +175,8 @@ export const es: Content = {
         problem:
           'Un saldo que nadie puede rastrear hasta el movimiento que lo produjo no se puede auditar. Cuando alguien lo nota, el historial ya se perdió.',
         solution:
-          'Todo cambio de saldo nace de un movimiento de caja. No existen ajustes manuales ni se elimina nada, así que las correcciones son reversas que apuntan a lo que corrigen. Escribí las 25 features como especificaciones antes de programar, y registré cada decisión de arquitectura como un ADR numerado.',
-        role: 'Desarrollador único. Especificaciones, arquitectura, implementación y CI.',
+          'Todo cambio de saldo nace de un movimiento de caja. No existen ajustes manuales ni se elimina nada, así que las correcciones son reversas que apuntan a lo que corrigen. Desarrollo guiado por especificaciones (SDD) y registro de decisiones de arquitectura (ADRs) con asistencia de agentes de IA; las 25 features se especificaron antes de programar.',
+        role: 'Desarrollador único. Desarrollo guiado por especificaciones (SDD), decisiones de arquitectura (ADRs) con asistencia de agentes de IA, implementación y CI.',
         results: [
           '14 ADRs numerados, cada uno con su contexto, decisión y consecuencias.',
           '5 de 25 features completadas, con el estado de cada una en una matriz de trazabilidad.',
@@ -205,17 +205,12 @@ export const es: Content = {
         role: 'Desarrollador Full Stack',
         period: 'Julio 2023 a la actualidad',
         location: 'Manta, Ecuador. Presencial.',
-        highlights: [
-          { value: '75%', label: 'menos tiempo para construir un módulo nuevo' },
-          { value: '90%', label: 'menos estilos en línea' },
-          { value: '+50.000', label: 'usuarios registrados en la plataforma' },
-        ],
         bullets: [
-          'Sostengo la arquitectura frontend del portal público y los componentes que reutiliza el equipo.',
-          'Ayudo a definir los estándares de arquitectura, reviso código y evito que la deuda técnica se acumule.',
-          'Integro proveedores de sportsbook y casino, y pruebo los flujos de dinero antes de la certificación del operador.',
-          'Programo servicios backend en Node.js y TypeScript, con consultas en MongoDB para reportes, gestión de usuarios, transacciones y configuraciones.',
-          'Agrego logs estructurados en Seq a los servicios para seguir cómo se comportan los flujos en producción.',
+          'Lidero la arquitectura frontend del portal público multi-tenant de iGaming con tematización por design tokens, soportando más de 50.000 cuentas de jugadores registradas en su primer operador.',
+          'Estructuré el sistema de componentes base y la gobernanza de design tokens, guiando al equipo mediante revisiones de código (PRs) y permitiendo migrar el frontend del backoffice completo (~12 módulos) en 1 mes.',
+          'Desarrollé servicios de integración con proveedores de casino y sportsbook en Java (Spring Boot) y Node.js, validando flujos financieros antes de la certificación del operador.',
+          'Programo servicios backend en Node.js y TypeScript con consultas MongoDB y caché con Redis para reportes, gestión de usuarios, transacciones y configuraciones.',
+          'Implementé observabilidad con Seq para correlación de fallos en depósitos/transacciones, alertas ante caídas de proveedores y trazabilidad de endpoints críticos.',
         ],
         tech: [
           'Angular',
@@ -224,8 +219,11 @@ export const es: Content = {
           'NgRx',
           'Signals',
           'Node.js',
+          'Spring Boot',
+          'Java',
           'MongoDB',
           'PostgreSQL',
+          'Redis',
           'Seq',
         ],
         projectHref: '#work',
@@ -239,7 +237,7 @@ export const es: Content = {
         location: 'Manta, Ecuador. Remoto, por demanda.',
         bullets: [
           'Construí la tienda en línea y su panel administrativo con PHP y JavaScript.',
-          'Automaticé la sincronización de inventario y la carga masiva del catálogo.',
+          'Diseñé un pipeline ETL en Python que sincroniza ~5.800 productos en lotes de 500 registros cada ~13 minutos desde SQL Server hacia MySQL sin interrumpir el sistema legado.',
           'Mantuve la tienda en producción y atendí los cambios que pidió el cliente.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
@@ -308,9 +306,9 @@ export const es: Content = {
     title: 'Stack y tecnologías',
     groups: [
       { title: 'Frontend', items: stacks.frontend },
-      { title: 'Backend y bases de datos', items: stacks.backend },
-      { title: 'Testing y calidad', items: stacks.testing },
-      { title: 'DevOps y herramientas', items: stacks.devops },
+      { title: 'Backend', items: stacks.backend },
+      { title: 'Bases de datos', items: stacks.database },
+      { title: 'Testing y DevOps', items: stacks.devops },
     ],
   },
   contact: {

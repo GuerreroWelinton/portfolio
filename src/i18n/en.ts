@@ -175,8 +175,8 @@ export const en: Content = {
         problem:
           'A balance nobody can trace back to the movement that produced it cannot be audited. By the time someone notices, the history is already gone.',
         solution:
-          'Every balance change comes from a cash movement. There are no manual adjustments and nothing is ever deleted, so corrections are reversals that point back at what they correct. I wrote all 25 features as specifications before writing code, and recorded each architectural decision as a numbered ADR.',
-        role: 'Sole developer. Specifications, architecture, implementation and CI.',
+          'Every balance change comes from a cash movement. There are no manual adjustments and nothing is ever deleted, so corrections are reversals that point back at what they correct. Spec-Driven Development (SDD) and architectural decision records (ADRs) with AI agent assistance: all 25 features were specified before writing code.',
+        role: 'Sole developer. Spec-Driven Development (SDD), architectural decision records (ADRs) with AI agent assistance, implementation and CI.',
         results: [
           '14 numbered ADRs, each with its context, decision and consequences.',
           '5 of 25 features complete, with every status kept in a traceability matrix.',
@@ -205,17 +205,12 @@ export const en: Content = {
         role: 'Full Stack Developer',
         period: 'July 2023 to now',
         location: 'Manta, Ecuador. On-site.',
-        highlights: [
-          { value: '75%', label: 'less time to build a new module' },
-          { value: '90%', label: 'fewer inline styles' },
-          { value: '+50K', label: 'registered users on the platform' },
-        ],
         bullets: [
-          'Own the frontend architecture of the public portal and the components the team reuses.',
-          'Help set the architectural standards, review code and keep technical debt from piling up.',
-          'Integrate sportsbook and casino providers, and test the money flows before certification by the operator.',
-          'Write backend services in Node.js and TypeScript, with MongoDB queries for reports, user management, transactions and settings.',
-          'Add structured logs in Seq to the services and follow how the flows behave in production.',
+          'Lead the frontend architecture of the multi-tenant iGaming public portal with design token theming, supporting 50,000+ registered player accounts on its primary operator.',
+          'Structured the base component system and design token governance, mentoring the team through code reviews (PRs) and enabling the full backoffice frontend migration (~12 modules) in 1 month.',
+          'Developed casino and sportsbook provider integration services in Java (Spring Boot) and Node.js, validating financial flows prior to operator certification.',
+          'Engineer backend services in Node.js and TypeScript with MongoDB queries and Redis caching for reports, user management, transactions, and configurations.',
+          'Implemented observability with Seq for deposit/transaction failure correlation, provider downtime alerts, and critical endpoint traceability.',
         ],
         tech: [
           'Angular',
@@ -224,8 +219,11 @@ export const en: Content = {
           'NgRx',
           'Signals',
           'Node.js',
+          'Spring Boot',
+          'Java',
           'MongoDB',
           'PostgreSQL',
+          'Redis',
           'Seq',
         ],
         projectHref: '#work',
@@ -239,7 +237,7 @@ export const en: Content = {
         location: 'Manta, Ecuador. Remote, on demand.',
         bullets: [
           'Built the online store and its admin panel with PHP and JavaScript.',
-          'Automated the inventory sync and the bulk catalogue updates.',
+          'Designed a Python ETL pipeline syncing ~5,800 products in batches of 500 records every ~13 minutes from SQL Server to MySQL without disrupting the legacy system.',
           'Kept the store running in production and took on the changes the client asked for.',
         ],
         tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
@@ -308,9 +306,9 @@ export const en: Content = {
     title: 'Stack and technologies',
     groups: [
       { title: 'Frontend', items: stacks.frontend },
-      { title: 'Backend and databases', items: stacks.backend },
-      { title: 'Testing and quality', items: stacks.testing },
-      { title: 'DevOps and tools', items: stacks.devops },
+      { title: 'Backend', items: stacks.backend },
+      { title: 'Databases', items: stacks.database },
+      { title: 'Testing and DevOps', items: stacks.devops },
     ],
   },
   contact: {
