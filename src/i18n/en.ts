@@ -67,7 +67,7 @@ export const en: Content = {
         year: '2023 to now',
         context: 'ZGames Technology',
         summary:
-          'A multi-tenant iGaming platform for sportsbook and casino. One codebase built to host several operators, each one carrying its own brand.',
+          'A multi-tenant iGaming platform. One codebase built to host several operators, each one carrying its own brand.',
         problem:
           'The brief was an iGaming platform for one operator. Partway through we saw it could serve other operators too. Forking the code per client would have made it impossible to maintain.',
         solution:

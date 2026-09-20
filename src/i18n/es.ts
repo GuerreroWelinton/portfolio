@@ -67,7 +67,7 @@ export const es: Content = {
         year: '2023 a la actualidad',
         context: 'ZGames Technology',
         summary:
-          'Plataforma multi-tenant de iGaming, deportes y casino. Un mismo código construido para alojar a varios operadores, cada uno con su propia marca.',
+          'Plataforma multi-tenant de iGaming. Un mismo código construido para alojar a varios operadores, cada uno con su propia marca.',
         problem:
           'El encargo era una plataforma de iGaming para un solo operador. A mitad del desarrollo vimos que podía servir también a otros operadores. Bifurcar el código por cliente la habría vuelto imposible de mantener.',
         solution:
