@@ -263,7 +263,6 @@ export const en: Content = {
         period: 'October 2022 to January 2023',
         location: 'Manta, Ecuador. On-site.',
         bullets: [
-          'Planned the contents of the course across the term.',
           'Prepared and delivered classes on mobile development with Flutter and React Native, and wrote the supporting material.',
           'Reviewed the code students submitted and gave them feedback on it.',
         ],
