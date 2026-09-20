@@ -71,8 +71,8 @@ export const en: Content = {
         problem:
           'The brief was an iGaming platform for one operator. Partway through we saw it could serve other operators too. Forking the code per client would have made it impossible to maintain.',
         solution:
-          'I structured the Angular frontend and its base components so the whole look changes by swapping design tokens. On the backend I wrote the services for users, reports, transactions and account settings.',
-        role: 'Full Stack Developer on the team that built it from scratch. Frontend architecture, backend services, provider integrations.',
+          'I structured the Angular frontend and its base components so the entire look changes by swapping design tokens. On the backend I wrote the REST APIs and services for users, reports, transactions and account configuration.',
+        role: 'Full Stack Developer on the team that built it from scratch. Frontend architecture, backend REST APIs, provider integrations.',
         products: [
           {
             name: 'Sorti365',
@@ -168,7 +168,7 @@ export const en: Content = {
         context: 'Engineering thesis, ULEAM',
         summary: 'Platform for booking laboratories, taking attendance and generating reports.',
         solution:
-          'Node.js and TypeScript backend with Clean Architecture. The frontend is an Angular SPA organised by features, with NgRx holding the state.',
+          'REST API and backend in Node.js and TypeScript with Clean Architecture. The frontend is an Angular SPA organised by features, with NgRx holding the state.',
         results: [
           'Four user roles, each with its own permissions.',
           'Deployed on DigitalOcean with Docker, Docker Compose and Nginx.',
@@ -219,10 +219,10 @@ export const en: Content = {
         period: 'July 2023 to now',
         location: 'Manta, Ecuador. On-site.',
         bullets: [
-          'Lead the frontend architecture of the multi-tenant iGaming public portal with design token theming, supporting 50,000+ registered player accounts on its primary operator.',
+          'Lead the Angular frontend architecture of the multi-tenant iGaming public portal with design token theming, supporting 50,000+ registered player accounts on its primary operator.',
           'Structured the base component system and design token governance, mentoring the team through code reviews (PRs) and enabling the full backoffice frontend migration (~12 modules) in 1 month.',
-          'Developed casino and sportsbook provider integration services in Java (Spring Boot) and Node.js, validating financial flows prior to operator certification.',
-          'Engineer backend services in Node.js and TypeScript with MongoDB queries and Redis caching for reports, user management, transactions, and configurations.',
+          'Developed casino and sportsbook provider integration APIs and services in Java (Spring Boot) and Node.js, validating financial flows prior to operator certification.',
+          'Engineer REST APIs and backend services in Node.js and TypeScript with MongoDB queries and Redis caching for reports, user management, transactions, and configurations.',
           'Implemented observability with Seq for deposit/transaction failure correlation, provider downtime alerts, and critical endpoint traceability.',
         ],
         tech: [

@@ -71,8 +71,8 @@ export const es: Content = {
         problem:
           'El encargo era una plataforma de iGaming para un solo operador. A mitad del desarrollo vimos que podía servir también a otros operadores. Bifurcar el código por cliente la habría vuelto imposible de mantener.',
         solution:
-          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé los servicios de usuarios, reportes, transacciones y configuración de cuenta.',
-        role: 'Desarrollador Full Stack en el equipo que la construyó desde cero. Arquitectura frontend, servicios backend, integraciones con proveedores.',
+          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé las APIs REST y servicios de usuarios, reportes, transacciones y configuración de cuenta.',
+        role: 'Desarrollador Full Stack en el equipo que la construyó desde cero. Arquitectura frontend, APIs REST backend e integraciones con proveedores.',
         products: [
           {
             name: 'Sorti365',
@@ -168,7 +168,7 @@ export const es: Content = {
         context: 'Trabajo de Titulación, ULEAM',
         summary: 'Plataforma para reservar laboratorios, registrar asistencia y generar reportes.',
         solution:
-          'Backend en Node.js y TypeScript con Clean Architecture. El frontend es una SPA en Angular organizada por features, con NgRx sosteniendo el estado.',
+          'API REST y backend en Node.js y TypeScript con Clean Architecture. El frontend es una SPA en Angular organizada por features, con NgRx sosteniendo el estado.',
         results: [
           'Cuatro perfiles de usuario, cada uno con sus permisos.',
           'Desplegado en DigitalOcean con Docker, Docker Compose y Nginx.',
@@ -219,10 +219,10 @@ export const es: Content = {
         period: 'Julio 2023 a la actualidad',
         location: 'Manta, Ecuador. Presencial.',
         bullets: [
-          'Lidero la arquitectura frontend del portal público multi-tenant de iGaming con tematización por design tokens, soportando más de 50.000 cuentas de jugadores registradas en su primer operador.',
+          'Lidero la arquitectura frontend en Angular del portal público multi-tenant de iGaming con tematización por design tokens, soportando más de 50.000 cuentas de jugadores registradas en su primer operador.',
           'Estructuré el sistema de componentes base y la gobernanza de design tokens, guiando al equipo mediante revisiones de código (PRs) y permitiendo migrar el frontend del backoffice completo (~12 módulos) en 1 mes.',
-          'Desarrollé servicios de integración con proveedores de casino y sportsbook en Java (Spring Boot) y Node.js, validando flujos financieros antes de la certificación del operador.',
-          'Programo servicios backend en Node.js y TypeScript con consultas MongoDB y caché con Redis para reportes, gestión de usuarios, transacciones y configuraciones.',
+          'Desarrollé APIs y servicios de integración con proveedores de casino y sportsbook en Java (Spring Boot) y Node.js, validando flujos financieros antes de la certificación del operador.',
+          'Programo APIs REST y servicios backend en Node.js y TypeScript con consultas MongoDB y caché con Redis para reportes, gestión de usuarios, transacciones y configuraciones.',
           'Implementé observabilidad con Seq para correlación de fallos en depósitos/transacciones, alertas ante caídas de proveedores y trazabilidad de endpoints críticos.',
         ],
         tech: [
