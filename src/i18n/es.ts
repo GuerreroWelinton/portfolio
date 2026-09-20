@@ -215,15 +215,15 @@ export const es: Content = {
       {
         company: 'ZGames Technology',
         companyNote: 'ZGames desarrolla tecnología para la industria del iGaming.',
-        role: 'Desarrollador Full Stack',
+        role: 'Desarrollador Full Stack (Mid-Level)',
         period: 'Julio 2023 a la actualidad',
         location: 'Manta, Ecuador. Presencial.',
         bullets: [
           'Lidero la arquitectura frontend en Angular del portal público multi-tenant de iGaming con tematización por design tokens, soportando más de 50.000 cuentas de jugadores registradas en su primer operador.',
-          'Estructuré el sistema de componentes base y la gobernanza de design tokens, guiando al equipo mediante revisiones de código (PRs) y permitiendo migrar el frontend del backoffice completo (~12 módulos) en 1 mes.',
-          'Desarrollé APIs y servicios de integración con proveedores de casino y sportsbook en Java (Spring Boot) y Node.js, validando flujos financieros antes de la certificación del operador.',
-          'Programo APIs REST y servicios backend en Node.js y TypeScript con consultas MongoDB y caché con Redis para reportes, gestión de usuarios, transacciones y configuraciones.',
-          'Implementé observabilidad con Seq para correlación de fallos en depósitos/transacciones, alertas ante caídas de proveedores y trazabilidad de endpoints críticos.',
+          'Estructuré el sistema de componentes base y la gobernanza de design tokens, guiando al equipo mediante revisiones de código (PRs) y acelerando la migración del backoffice completo (~12 módulos) en 1 mes.',
+          'Diseño e integro APIs y servicios con proveedores externos en Java (Spring Boot) y Node.js, validando la consistencia transaccional y la reconciliación financiera previa a la certificación del operador.',
+          'Diseño servicios backend y APIs REST en Node.js y TypeScript con caché en Redis y MongoDB, optimizando reportes transaccionales y gestión de cuentas.',
+          'Implementé observabilidad estructurada con Seq para correlación de fallos transaccionales, alertas ante caídas de proveedores y trazabilidad de endpoints críticos 24/7.',
         ],
         tech: [
           'Angular',

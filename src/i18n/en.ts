@@ -215,15 +215,15 @@ export const en: Content = {
       {
         company: 'ZGames Technology',
         companyNote: 'ZGames builds technology for the iGaming industry.',
-        role: 'Full Stack Developer',
+        role: 'Full Stack Developer (Mid-Level)',
         period: 'July 2023 to now',
         location: 'Manta, Ecuador. On-site.',
         bullets: [
           'Lead the Angular frontend architecture of the multi-tenant iGaming public portal with design token theming, supporting 50,000+ registered player accounts on its primary operator.',
-          'Structured the base component system and design token governance, mentoring the team through code reviews (PRs) and enabling the full backoffice frontend migration (~12 modules) in 1 month.',
-          'Developed casino and sportsbook provider integration APIs and services in Java (Spring Boot) and Node.js, validating financial flows prior to operator certification.',
-          'Engineer REST APIs and backend services in Node.js and TypeScript with MongoDB queries and Redis caching for reports, user management, transactions, and configurations.',
-          'Implemented observability with Seq for deposit/transaction failure correlation, provider downtime alerts, and critical endpoint traceability.',
+          'Structured the base component system and design token governance, mentoring the technical team through code reviews (PRs) and accelerating the full backoffice migration (~12 modules) in 1 month.',
+          'Design and integrate APIs and services with external providers in Java (Spring Boot) and Node.js, validating transactional consistency and financial reconciliation prior to operator certification.',
+          'Design backend services and REST APIs in Node.js and TypeScript with Redis caching and MongoDB, optimizing transactional reports and user management.',
+          'Implemented structured observability with Seq for transactional failure correlation, provider downtime alerts, and critical 24/7 endpoint traceability.',
         ],
         tech: [
           'Angular',
