@@ -28,17 +28,6 @@ const { experience } = content;
               <p class="entry__role">{entry.role}</p>
               <p class="entry__note">{entry.companyNote}</p>
 
-              {entry.highlights && (
-                <ul class="highlights">
-                  {entry.highlights.map((highlight) => (
-                    <li>
-                      <span class="highlights__value">{highlight.value}</span>
-                      <span class="highlights__label">{highlight.label}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
               <ul class="entry__bullets">
                 {entry.bullets.map((bullet) => (
                   <li>{bullet}</li>
@@ -126,41 +115,6 @@ const { experience } = content;
     color: var(--color-muted-ink);
   }
 
-  .highlights {
-    display: grid;
-    margin-top: var(--space-lg);
-    border: var(--border-thin) solid var(--color-border);
-    max-width: var(--measure);
-  }
-
-  .highlights li {
-    padding: var(--space-md);
-    border-bottom: var(--border-hair) solid var(--color-border);
-  }
-
-  .highlights li:last-child {
-    border-bottom: 0;
-  }
-
-  .highlights__value {
-    display: block;
-    font-size: var(--text-h3);
-    font-weight: var(--weight-black);
-    line-height: 1;
-    letter-spacing: var(--tracking-tight);
-    color: var(--color-accent);
-  }
-
-  .highlights__label {
-    display: block;
-    margin-top: var(--space-2xs);
-    font-size: var(--text-micro);
-    font-weight: var(--weight-bold);
-    letter-spacing: var(--tracking-wide);
-    text-transform: uppercase;
-    color: var(--color-muted-ink);
-  }
-
   .entry__bullets {
     display: grid;
     gap: var(--space-sm);
@@ -205,21 +159,6 @@ const { experience } = content;
 
   .entry__link a:hover {
     color: var(--color-accent-ink);
-  }
-
-  @media (min-width: 48rem) {
-    .highlights {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .highlights li {
-      border-bottom: 0;
-      border-right: var(--border-hair) solid var(--color-border);
-    }
-
-    .highlights li:last-child {
-      border-right: 0;
-    }
   }
 
   @media (min-width: 64rem) {

@@ -35,7 +35,6 @@ export interface ExperienceEntry {
   role: string;
   period: string;
   location: string;
-  highlights?: { value: string; label: string }[];
   bullets: string[];
   tech: readonly string[];
   projectHref?: string;

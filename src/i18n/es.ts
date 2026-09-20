@@ -67,12 +67,12 @@ export const es: Content = {
         year: '2023 a la actualidad',
         context: 'ZGames Technology',
         summary:
-          'Plataforma multi-tenant de iGaming, deportes y casino. Un mismo código construido para alojar a varios operadores, cada uno con su propia marca.',
+          'Plataforma multi-tenant de iGaming. Un mismo código construido para alojar a varios operadores, cada uno con su propia marca.',
         problem:
           'El encargo era una plataforma de iGaming para un solo operador. A mitad del desarrollo vimos que podía servir también a otros operadores. Bifurcar el código por cliente la habría vuelto imposible de mantener.',
         solution:
-          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé los servicios de usuarios, reportes, transacciones y configuración de cuenta.',
-        role: 'Desarrollador Full Stack en el equipo que la construyó desde cero. Arquitectura frontend, servicios backend, integraciones con proveedores.',
+          'Estructuré el frontend en Angular y sus componentes base para que todo el aspecto cambie intercambiando design tokens. En el backend programé las APIs REST y servicios de usuarios, reportes, transacciones y configuración de cuenta.',
+        role: 'Desarrollador Full Stack en el equipo que la construyó desde cero. Arquitectura frontend, APIs REST backend e integraciones con proveedores.',
         products: [
           {
             name: 'Sorti365',
@@ -95,9 +95,22 @@ export const es: Content = {
           'Integraciones de sportsbook y casino probadas contra flujos de dinero reales antes de la certificación del operador.',
           'Back office y gestión interna construidos junto al portal público.',
         ],
-        tech: ['Angular', 'TypeScript', 'RxJS', 'NgRx', 'Signals', 'CSS', 'Node.js', 'MongoDB', 'Design Tokens'],
+        tech: [
+          'Angular',
+          'TypeScript',
+          'RxJS',
+          'NgRx',
+          'Signals',
+          'Node.js',
+          'Spring Boot',
+          'Java',
+          'MongoDB',
+          'PostgreSQL',
+          'Redis',
+          'Seq',
+        ],
         image: images.projects.sorti365,
-        imageAlt: 'Portal de iGaming Sorti365: cuotas de partidos en vivo sobre una grilla de juegos de casino',
+        imageAlt: 'Portal de iGaming Sorti365: cuotas de partidos en vivo sobre una grilla de juegos',
         liveUrl: 'https://sorti365.com/',
       },
       {
@@ -116,7 +129,7 @@ export const es: Content = {
           'Los precios y las ofertas se actualizan desde una hoja de cálculo en vez de uno por uno.',
           'Panel administrativo diseñado desde cero para categorías, marcas, galerías y ofertas.',
         ],
-        tech: ['PHP', 'JavaScript', 'Python', 'MySQL', 'SQL Server', 'Google Sheets API'],
+        tech: ['PHP', 'JavaScript', 'Python', 'MySQL', 'Google Sheets API'],
         image: images.projects.tecnored,
         imageAlt: 'Portada de la tienda Tecnored con su banner de promoción de productos',
         liveUrl: 'https://tecnoredec.com/',
@@ -138,11 +151,9 @@ export const es: Content = {
           'Angular',
           'Signals',
           'TypeScript',
-          'CSS',
           'Storybook',
           'Vitest',
           'Testing Library',
-          'Chromatic',
           'GitHub Actions',
         ],
         image: images.projects.designSystem,
@@ -157,7 +168,7 @@ export const es: Content = {
         context: 'Trabajo de Titulación, ULEAM',
         summary: 'Plataforma para reservar laboratorios, registrar asistencia y generar reportes.',
         solution:
-          'Backend en Node.js y TypeScript con Clean Architecture. El frontend es una SPA en Angular organizada por features, con NgRx sosteniendo el estado.',
+          'API REST y backend en Node.js y TypeScript con Clean Architecture. El frontend es una SPA en Angular organizada por features, con NgRx sosteniendo el estado.',
         results: [
           'Cuatro perfiles de usuario, cada uno con sus permisos.',
           'Desplegado en DigitalOcean con Docker, Docker Compose y Nginx.',
@@ -165,6 +176,7 @@ export const es: Content = {
         tech: ['Angular', 'NgRx', 'Node.js', 'TypeScript', 'Docker', 'DigitalOcean'],
         repoUrl: 'https://github.com/GuerreroWelinton/academic-uleam-tesis',
       },
+      /*
       {
         name: 'Todo saldo se puede explicar',
         kind: 'En desarrollo, fintech',
@@ -175,8 +187,8 @@ export const es: Content = {
         problem:
           'Un saldo que nadie puede rastrear hasta el movimiento que lo produjo no se puede auditar. Cuando alguien lo nota, el historial ya se perdió.',
         solution:
-          'Todo cambio de saldo nace de un movimiento de caja. No existen ajustes manuales ni se elimina nada, así que las correcciones son reversas que apuntan a lo que corrigen. Escribí las 25 features como especificaciones antes de programar, y registré cada decisión de arquitectura como un ADR numerado.',
-        role: 'Desarrollador único. Especificaciones, arquitectura, implementación y CI.',
+          'Todo cambio de saldo nace de un movimiento de caja. No existen ajustes manuales ni se elimina nada, así que las correcciones son reversas que apuntan a lo que corrigen. Desarrollo guiado por especificaciones (SDD) y registro de decisiones de arquitectura (ADRs) con asistencia de agentes de IA; las 25 features se especificaron antes de programar.',
+        role: 'Desarrollador único. Desarrollo guiado por especificaciones (SDD), decisiones de arquitectura (ADRs) con asistencia de agentes de IA, implementación y CI.',
         results: [
           '14 ADRs numerados, cada uno con su contexto, decisión y consecuencias.',
           '5 de 25 features completadas, con el estado de cada una en una matriz de trazabilidad.',
@@ -185,6 +197,7 @@ export const es: Content = {
         tech: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Prisma', 'Zod', 'Vitest'],
         repoUrl: 'https://github.com/GuerreroWelinton/product-clear-fund',
       },
+      */
     ],
   },
   about: {
@@ -202,20 +215,15 @@ export const es: Content = {
       {
         company: 'ZGames Technology',
         companyNote: 'ZGames desarrolla tecnología para la industria del iGaming.',
-        role: 'Desarrollador Full Stack',
+        role: 'Desarrollador Full Stack (Mid-Level)',
         period: 'Julio 2023 a la actualidad',
         location: 'Manta, Ecuador. Presencial.',
-        highlights: [
-          { value: '75%', label: 'menos tiempo para construir un módulo nuevo' },
-          { value: '90%', label: 'menos estilos en línea' },
-          { value: '+50.000', label: 'usuarios registrados en la plataforma' },
-        ],
         bullets: [
-          'Sostengo la arquitectura frontend del portal público y los componentes que reutiliza el equipo.',
-          'Ayudo a definir los estándares de arquitectura, reviso código y evito que la deuda técnica se acumule.',
-          'Integro proveedores de sportsbook y casino, y pruebo los flujos de dinero antes de la certificación del operador.',
-          'Programo servicios backend en Node.js y TypeScript, con consultas en MongoDB para reportes, gestión de usuarios, transacciones y configuraciones.',
-          'Agrego logs estructurados en Seq a los servicios para seguir cómo se comportan los flujos en producción.',
+          'Lidero la arquitectura frontend en Angular del portal público multi-tenant de iGaming con tematización por design tokens, soportando más de 50.000 cuentas de jugadores registradas en su primer operador.',
+          'Estructuré el sistema de componentes base y la gobernanza de design tokens, guiando al equipo mediante revisiones de código (PRs) y acelerando la migración del backoffice completo (~12 módulos) en 1 mes.',
+          'Diseño e integro APIs y servicios con proveedores externos en Java (Spring Boot) y Node.js, validando la consistencia transaccional y la reconciliación financiera previa a la certificación del operador.',
+          'Diseño servicios backend y APIs REST en Node.js y TypeScript con caché en Redis y MongoDB, optimizando reportes transaccionales y gestión de cuentas.',
+          'Implementé observabilidad estructurada con Seq para correlación de fallos transaccionales, alertas ante caídas de proveedores y trazabilidad de endpoints críticos 24/7.',
         ],
         tech: [
           'Angular',
@@ -224,8 +232,11 @@ export const es: Content = {
           'NgRx',
           'Signals',
           'Node.js',
+          'Spring Boot',
+          'Java',
           'MongoDB',
           'PostgreSQL',
+          'Redis',
           'Seq',
         ],
         projectHref: '#work',
@@ -239,10 +250,10 @@ export const es: Content = {
         location: 'Manta, Ecuador. Remoto, por demanda.',
         bullets: [
           'Construí la tienda en línea y su panel administrativo con PHP y JavaScript.',
-          'Automaticé la sincronización de inventario y la carga masiva del catálogo.',
+          'Diseñé un pipeline ETL en Python que sincroniza ~5.800 productos en lotes de 500 registros cada ~13 minutos desde SQL Server hacia MySQL sin interrumpir el sistema legado.',
           'Mantuve la tienda en producción y atendí los cambios que pidió el cliente.',
         ],
-        tech: ['PHP', 'JavaScript', 'Python', 'MySQL'],
+        tech: ['PHP', 'JavaScript', 'Python', 'MySQL', 'Google Sheets API'],
         projectHref: '#work',
         projectLabel: 'Ver la tienda',
       },
@@ -265,7 +276,6 @@ export const es: Content = {
         period: 'Octubre 2022 a enero 2023',
         location: 'Manta, Ecuador. Presencial.',
         bullets: [
-          'Planifiqué los contenidos de la asignatura a lo largo del período.',
           'Preparé e impartí clases de desarrollo móvil con Flutter y React Native, y elaboré el material de apoyo.',
           'Revisé el código que entregaban los estudiantes y les devolví retroalimentación.',
         ],
@@ -308,9 +318,9 @@ export const es: Content = {
     title: 'Stack y tecnologías',
     groups: [
       { title: 'Frontend', items: stacks.frontend },
-      { title: 'Backend y bases de datos', items: stacks.backend },
-      { title: 'Testing y calidad', items: stacks.testing },
-      { title: 'DevOps y herramientas', items: stacks.devops },
+      { title: 'Backend', items: stacks.backend },
+      { title: 'Bases de datos', items: stacks.database },
+      { title: 'Testing y DevOps', items: stacks.devops },
     ],
   },
   contact: {
