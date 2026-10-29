@@ -32,7 +32,7 @@ export const es: Content = {
     name: 'Welinton Guerrero',
     roleLines: ['Desarrollador', 'Full Stack'],
     valueProp:
-      'Construyo plataformas web multi-tenant que le dan a cada operador su propia marca desde un mismo código. Más de 3 años en productos de iGaming, e-commerce y herramientas internas.',
+      `Construyo plataformas web multi-tenant que le dan a cada operador su propia marca desde un mismo código. Más de ${profile.yearsOfExperience} años en productos de iGaming, e-commerce y herramientas internas.`,
     availability: ['Disponible para posiciones remotas', 'Disponible para proyectos freelance'],
     stackLabel: 'Stack principal',
     coreStack: stacks.core,

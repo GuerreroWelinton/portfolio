@@ -2,6 +2,8 @@ export const profile = {
   name: 'Welinton Guerrero',
   firstName: 'Welinton',
   lastName: 'Guerrero',
+  // Whole years since the first professional role; bump every October 24.
+  yearsOfExperience: 4,
   email: 'guerrerozamora213@gmail.com',
   links: {
     linkedin: 'https://www.linkedin.com/in/welinton-guerrero',
